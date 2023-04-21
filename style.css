@@ -33,7 +33,6 @@ h1 {
   line-height: 116px;
   text-align: center;
   color: #D8DEE9;
-  user-select: none; /* Allow text selection for h1 */
 }
 
 /* Set styles for text element */
@@ -42,7 +41,7 @@ h1 {
   width: 257px;
   height: 19px;
   left: 831px;
-  top: 221px; /* Adjusted top position */
+  top: 241px;
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -50,7 +49,6 @@ h1 {
   line-height: 19px;
   text-align: center;
   color: #D8DEE9;
-  user-select: none; /* Allow text selection for h1 */
 }
 
 /* Set styles for rectangle */
@@ -59,10 +57,15 @@ h1 {
   width: 437px;
   height: 128px;
   left: 741px;
-  top: 333px; /* Adjusted top position */
-  background: #D5CC5C;
+  top: 313px;
+  background: #D5CC5C url('https://i.imgur.com/Y0Shi4E.png') no-repeat center/contain;
   border-radius: 65px;
-  user-select: none; /* Allow text selection for h1 */
+}
+
+/* Set styles for rectangle when hovered over */
+.rectangle:hover {
+  cursor: pointer;
+  background-color: #D5CC5C;
 }
 
 /* Set styles for made by text */
@@ -71,7 +74,7 @@ h1 {
   width: 204px;
   height: 29px;
   left: 858px;
-  top: 1051px;
+  top: 1001px;
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -79,5 +82,4 @@ h1 {
   line-height: 29px;
   text-align: center;
   color: #D8DEE9;
-  user-select: none; /* Allow text selection for h1 */
 }
