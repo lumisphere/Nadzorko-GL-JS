@@ -51,21 +51,33 @@ h1 {
   color: #D8DEE9;
 }
 
-/* Set styles for rectangle */
+/* Set styles for rectangle 1 */
 .rectangle {
   position: absolute;
   width: 437px;
   height: 128px;
   left: 741px;
   top: 313px;
-  background: #D5CC5C url('https://i.imgur.com/Y0Shi4E.png') no-repeat center/contain;
+  background: #FFEC00 url('https://i.imgur.com/JEnagSb.png') no-repeat center/contain;
+  border-radius: 65px;
+}
+
+/* Set styles for second rectangle */
+.rectangle2 {
+  position: absolute;
+  width: 437px;
+  height: 128px;
+  left: 741px;
+  top: 513px;
+  background: #ECEFF4 url('https://i.imgur.com/LIAuEtr.png') no-repeat center;
+  background-size: 85%;
   border-radius: 65px;
 }
 
 /* Set styles for rectangle when hovered over */
 .rectangle:hover {
   cursor: pointer;
-  background-color: #D5CC5C;
+  background-color: #f1c40f;
 }
 
 /* Set styles for made by text */
