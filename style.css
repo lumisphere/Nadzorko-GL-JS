@@ -1,0 +1,83 @@
+/* Set background color for html and body */
+html, body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #2E3440;
+}
+
+/* Set font family and size for body */
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  margin: 0;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none;
+}
+
+/* Set styles for h1 and p elements */
+h1 {
+  position: absolute;
+  width: 437px;
+  height: 116px;
+  left: 741px;
+  top: 75px;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 96px;
+  line-height: 116px;
+  text-align: center;
+  color: #D8DEE9;
+  user-select: none; /* Allow text selection for h1 */
+}
+
+/* Set styles for text element */
+.text {
+  position: absolute;
+  width: 257px;
+  height: 19px;
+  left: 831px;
+  top: 221px; /* Adjusted top position */
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #D8DEE9;
+  user-select: none; /* Allow text selection for h1 */
+}
+
+/* Set styles for rectangle */
+.rectangle {
+  position: absolute;
+  width: 437px;
+  height: 128px;
+  left: 741px;
+  top: 333px; /* Adjusted top position */
+  background: #D5CC5C;
+  border-radius: 65px;
+  user-select: none; /* Allow text selection for h1 */
+}
+
+/* Set styles for made by text */
+.made-by {
+  position: absolute;
+  width: 204px;
+  height: 29px;
+  left: 858px;
+  top: 1051px;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  color: #D8DEE9;
+  user-select: none; /* Allow text selection for h1 */
+}
