@@ -1,4 +1,4 @@
-/* Set background color for html and body */
+/* Background za stranicu */
 html, body {
   position: relative;
   width: 100%;
@@ -8,7 +8,7 @@ html, body {
   background-color: #2E3440;
 }
 
-/* Set font family and size for body */
+/* Font obitelj i velicina */
 body {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
@@ -19,7 +19,7 @@ body {
   user-select: none;
 }
 
-/* Set styles for h1 and p elements */
+/* Stil za tekst ili tako nesto idk retardiran sam */
 h1 {
   position: absolute;
   width: 437px;
@@ -35,7 +35,7 @@ h1 {
   color: #D8DEE9;
 }
 
-/* Set styles for text element */
+/* Isto sranje ka i gore */
 .text {
   position: absolute;
   width: 257px;
@@ -51,7 +51,7 @@ h1 {
   color: #D8DEE9;
 }
 
-/* Set styles for rectangle 1 */
+/* Stil za pravokutnik PrometSplit(mat mi je losa pa ja msm da je pravokutnik) */
 .rectangle {
   position: absolute;
   width: 437px;
@@ -62,7 +62,7 @@ h1 {
   border-radius: 65px;
 }
 
-/* Set styles for second rectangle */
+/* Stil za pravokutnik HZPP */
 .rectangle2 {
   position: absolute;
   width: 437px;
@@ -74,13 +74,7 @@ h1 {
   border-radius: 65px;
 }
 
-/* Set styles for rectangle when hovered over */
-.rectangle:hover {
-  cursor: pointer;
-  background-color: #f1c40f;
-}
-
-/* Set styles for made by text */
+/*Stil za tekst skroz dole? */
 .made-by {
   position: absolute;
   width: 204px;
