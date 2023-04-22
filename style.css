@@ -96,6 +96,7 @@ h1 {
 }
 
 .bus-circle {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -106,4 +107,32 @@ h1 {
   height: 24px;
   font-size: 12px;
   line-height: 14px;
+}
+
+.bus-circle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #f1c40f;
+  color: #000000;
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.garage-number {
+  position: absolute;
+  font-size: 8px;
+  line-height: 10px;
+  display: block;
+  margin-top: 36px; /* Adjust this value to position the text below the center of the marker icon */
+  margin-left: 0px; /* Adjust this value to position the text to the left of the center of the marker icon */
+  color: #ffffff;
+  background-color: #e74c3c;
+  padding: 2px 4px; /* Add padding to the garage number to make it more visible */
+  border-radius: 44%; /* Add rounded corners to the garage number background */
+  pointer-events: none;
 }

@@ -1,20 +1,24 @@
 // Define a function to create the custom bus icon
-function createBusIcon(busLine) {
+function createBusIcon(busLine, garageNumber) {
   return L.divIcon({
     className: 'bus-icon',
-    html: `<div class="bus-circle">${busLine}</div>`,
+    html: `<div class="bus-circle">${busLine}<br/><span class="garage-number">${garageNumber}</span></div>`,
     iconSize: [32, 32]
   });
 }
 
 // Define a function to create the bus marker
 function createBusMarker(bus) {
-  // Get the bus line name from the bus object
+  // Get the bus line name and garage number from the bus object
   const busLine = bus.routeShortName;
+  const garageNumber = bus.garageNumber;
 
-  // Set the opacity based on the vehicle status
+  // Calculate the time difference in seconds
+  const timeDiffSeconds = Math.floor((Date.now() - new Date(bus.timestamp)) / 1000);
+
+  // Set the opacity based on the time difference
   let opacity = 1;
-  if (bus.vehicleStatus === 'NOT_ACTIVE_TRIP') {
+  if (timeDiffSeconds > 300) {
     opacity = 0.2; // Set the opacity to 20%
   }
 
@@ -22,7 +26,7 @@ function createBusMarker(bus) {
   const marker = L.marker(
     [bus.latitude, bus.longitude], 
     {
-      icon: createBusIcon(busLine),
+      icon: createBusIcon(busLine, garageNumber),
       opacity: opacity,
       busId: bus.id
     }
@@ -42,10 +46,10 @@ function findBusMarker(busId) {
   return marker;
 }
 
-// Define a function to check if the timestamp is more than 15 minutes ago
+// Define a function to check if the timestamp is more than 5 minutes ago
 function isOldTimestamp(timestamp) {
-  const fifteenMinutesAgo = Date.now() - 15 * 60 * 1000;
-  return new Date(timestamp) < fifteenMinutesAgo;
+  const fiveMinutesAgo = Date.now() - 5 * 60 * 1000;
+  return new Date(timestamp) < fiveMinutesAgo;
 }
 
 // Define a function to update the bus markers on the map
@@ -56,13 +60,17 @@ function updateBusMarkers() {
     .then(response => response.json())
     .then(data => {
       console.log('Fetched bus data:', data);
-      // Remove existing bus markers from the map
+      // Remove existing bus markers from the map if the timestamp is too old
       mymap.eachLayer(layer => {
         if (layer.options.icon && layer.options.icon.options.className === 'bus-icon') {
           const busId = layer.options.busId;
           const busData = data.data.find(bus => bus.id === busId);
-          if (!busData || busData.vehicleStatus === 'NOT_ACTIVE_TRIP' || isOldTimestamp(busData.timestamp)) {
-            mymap.removeLayer(layer);
+          if (!busData || isOldTimestamp(busData.timestamp)) {
+            // Set opacity to 0.2 instead of removing the layer
+            layer.setOpacity(0.2);
+          } else {
+            const opacity = Math.floor((Date.now() - new Date(busData.timestamp)) / 1000) > 300 ? 0.2 : 1;
+            layer.setOpacity(opacity);
           }
         }
       });
@@ -75,8 +83,11 @@ function updateBusMarkers() {
           if (existingMarker) {
             // Update the existing marker
             const busLine = bus.routeShortName;
-            existingMarker.setIcon(createBusIcon(busLine));
+            const garageNumber = bus.garageNumber;
+            existingMarker.setIcon(createBusIcon(busLine, garageNumber));
             existingMarker.setLatLng([bus.latitude, bus.longitude]);
+            const opacity = Math.floor((Date.now() - new Date(bus.timestamp)) / 1000) > 300 ? 0.2 : 1;
+            existingMarker.setOpacity(opacity);
           } else {
             // Create a new marker and add it to the map
             const marker = createBusMarker(bus);
