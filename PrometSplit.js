@@ -1,12 +1,3 @@
-// Initialize the map
-var mymap = L.map('mapid').setView([43.5081, 16.4402], 13);
-
-// Add the OpenStreetMap tile layer
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
-  maxZoom: 18,
-}).addTo(mymap);
-
 // Define a function to create the custom bus icon
 function createBusIcon(busLine) {
   return L.divIcon({
