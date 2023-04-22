@@ -11,25 +11,31 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 fetch('https://api.split.prometko.si/vehicles')
   .then(response => response.json())
   .then(data => {
-    // do something with the data
-  })
-  .catch(error => console.error(error));
+    // Define a function to create the custom marker
+    function createBusMarker(bus) {
+      // Get the bus line name from the bus object
+      const busLine = bus.routeShortName;
 
-//idfk
-fetch('https://api.split.prometko.si/vehicles')
-  .then(response => response.json())
-  .then(data => {
-    // Napravi novu ikonu za BUS
-    var busIcon = L.icon({
-      iconUrl: 'https://i.imgur.com/cubObdJ.png',
-      iconSize: [38, 38],
-      iconAnchor: [19, 19]
-    });
+      // Create a new marker with the custom icon
+      const marker = L.marker(
+        [bus.latitude, bus.longitude], 
+        {
+          icon: L.divIcon({
+            className: 'bus-icon',
+            html: `<div class="bus-circle">${busLine}</div>`,
+            iconSize: [32, 32]
+          })
+        }
+      );
+
+      return marker;
+    }
 
     // loop through the bus data and add markers to the map
     data.data.forEach(bus => {
       if (bus.latitude && bus.longitude) {
-        var marker = L.marker([bus.latitude, bus.longitude], { icon: busIcon }).addTo(mymap);
+        const marker = createBusMarker(bus);
+        marker.addTo(mymap);
       }
     });
   })

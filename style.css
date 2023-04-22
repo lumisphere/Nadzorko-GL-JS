@@ -89,3 +89,21 @@ h1 {
   text-align: center;
   color: #D8DEE9;
 }
+
+.bus-icon {
+  text-align: center;
+  font-weight: bold;
+}
+
+.bus-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #F94144;
+  color: #FFFFFF;
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+  line-height: 14px;
+}
