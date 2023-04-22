@@ -1,7 +1,7 @@
-// Initialize the map
+// Startaj mapu (initiziraj je valjda)
 var mymap = L.map('mapid').setView([43.5081, 16.4402], 13);
 
-// Add the OSM tile layer to the map
+// Dodati OSM layer na kartu
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
     maxZoom: 18,
@@ -19,7 +19,7 @@ fetch('https://api.split.prometko.si/vehicles')
 fetch('https://api.split.prometko.si/vehicles')
   .then(response => response.json())
   .then(data => {
-    // create a new icon object for the bus
+    // Napravi novu ikonu za BUS
     var busIcon = L.icon({
       iconUrl: 'https://i.imgur.com/cubObdJ.png',
       iconSize: [38, 38],
