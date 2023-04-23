@@ -121,7 +121,8 @@ h1 {
   height: 24px;
   font-size: 12px;
   line-height: 14px;
-  font-family: 'Inter', sans-serif; /* Change the font of the garage number text to Inter */
+  font-family: 'Inter', sans-serif;
+  z-index: 2; /* Set a higher z-index for the bus-circle */
 }
 
 .garage-number {
@@ -138,4 +139,21 @@ h1 {
   font-family: 'Inter', sans-serif; /* Change the font of the garage number text to Inter */
   pointer-events: none;
   text-rendering: optimizeLegibility;
+}
+
+.bus-icon-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(calc(35deg + var(--bearing, 0deg)));
+  width: 24px;
+  height: 24px;
+  z-index: 1; /* Set a lower z-index for the bus-icon-image */
+}
+
+.bus-icon-image img {
+display: block;
+width: 100%;
+height: 100%;
+transform: translate(-50%, -50%);
 }

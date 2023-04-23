@@ -1,17 +1,18 @@
-// Define a function to create the custom bus icon
-function createBusIcon(busLine, garageNumber) {
+// Make icons n shit like that
+function createBusIcon(busLine, garageNumber, bearing) {
   return L.divIcon({
     className: 'bus-icon',
-    html: `<div class="bus-circle">${busLine}<br/><span class="garage-number">${garageNumber}</span></div>`,
+    html: `<div class="bus-circle">${busLine}<br/><span class="garage-number">${garageNumber}</span><svg class="bus-icon-image" width="20" height="20" viewBox="0 0 20 20"><image href="bussmjer.svg" width="20" height="20" transform="rotate(${bearing + 200}, 10, 10)" /></svg></div>`,
     iconSize: [32, 32]
   });
 }
 
 // Define a function to create the bus marker
 function createBusMarker(bus) {
-  // Get the bus line name and garage number from the bus object
+  // Get the bus line name, garage number, and bearing from the bus object
   const busLine = bus.routeShortName;
   const garageNumber = bus.garageNumber;
+  const bearing = bus.bearing;
 
   // Calculate the time difference in seconds
   const timeDiffSeconds = Math.floor((Date.now() - new Date(bus.timestamp)) / 1000);
@@ -26,7 +27,7 @@ function createBusMarker(bus) {
   const marker = L.marker(
     [bus.latitude, bus.longitude], 
     {
-      icon: createBusIcon(busLine, garageNumber),
+      icon: createBusIcon(busLine, garageNumber, bearing),
       opacity: opacity,
       busId: bus.id
     }
@@ -66,28 +67,29 @@ function updateBusMarkers() {
           const busId = layer.options.busId;
           const busData = data.data.find(bus => bus.id === busId);
           if (!busData || isOldTimestamp(busData.timestamp)) {
-            // Set opacity to 0.2 instead of removing the layer
-            layer.setOpacity(0.2);
+            // Set opacity to 0.15 instead of removing the layer
+            layer.setOpacity(0.15);
           } else {
             const opacity = Math.floor((Date.now() - new Date(busData.timestamp)) / 1000) > 300 ? 0.2 : 1;
             layer.setOpacity(opacity);
+            // Update the existing marker
+            const busLine = busData.routeShortName;
+            const garageNumber = busData.garageNumber;
+            const bearing = busData.bearing;
+            const existingMarker = findBusMarker(busId);
+            existingMarker.setIcon(createBusIcon(busLine, garageNumber, bearing));
+            existingMarker.setLatLng([busData.latitude, busData.longitude]);
+            existingMarker.setOpacity(opacity);
           }
         }
       });
-
       // Loop through the bus data and add new markers to the map
       data.data.forEach(bus => {
         if (bus.latitude && bus.longitude) {
           const busId = bus.id;
           const existingMarker = findBusMarker(busId);
           if (existingMarker) {
-            // Update the existing marker
-            const busLine = bus.routeShortName;
-            const garageNumber = bus.garageNumber;
-            existingMarker.setIcon(createBusIcon(busLine, garageNumber));
-            existingMarker.setLatLng([bus.latitude, bus.longitude]);
-            const opacity = Math.floor((Date.now() - new Date(bus.timestamp)) / 1000) > 300 ? 0.2 : 1;
-            existingMarker.setOpacity(opacity);
+            // Marker already exists, skip
           } else {
             // Create a new marker and add it to the map
             const marker = createBusMarker(bus);
