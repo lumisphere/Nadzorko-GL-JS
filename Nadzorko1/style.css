@@ -146,14 +146,15 @@ h1 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(calc(35deg + var(--bearing, 0deg)));
-  width: 24px;
-  height: 24px;
-  z-index: 1; /* Set a lower z-index for the bus-icon-image */
+  width: 25px;
+  height: 25px;
+  z-index: 1;
 }
 
 .bus-icon-image img {
-display: block;
-width: 100%;
-height: 100%;
-transform: translate(-50%, -50%);
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* This property will ensure the entire image is visible */
+  transform: translate(-50%, -50%);
 }
