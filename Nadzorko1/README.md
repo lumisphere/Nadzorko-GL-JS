@@ -2,7 +2,7 @@
 
 Alternativa za https://fleet.promet-split.hr/, https://split.prometko.si/ i Promet Split app za Promet Split Autobuse.
 
-Alternativa za https://hzpp.prometko.si/ i HZPP Planer aplikaciju za HZ.
+Alternativa za https://map.vlak.si/ i HZPP Planer aplikaciju za HZ.
 
 Planirane funkcije za Promet Split Tracker:
 
