@@ -103,4 +103,4 @@ function updateBusMarkers() {
 updateBusMarkers();
 
 // Set an interval to update the bus markers every 5 seconds
-setInterval(updateBusMarkers, 5000);
+setInterval(updateBusMarkers, 1000);
