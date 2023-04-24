@@ -1,5 +1,6 @@
-var mymap = L.map('mapid').setView([43.5081, 16.4402], 13);
-
+var mymap = L.map('mapid', {
+    zoomControl: false
+}).setView([43.5081, 16.4402], 13);
 var accessToken = 'pk.eyJ1IjoidmVrZWpzbiIsImEiOiJja25ubHFoMWIxNXZ0MnNwbjFtaW1nbnFmIn0.8pX2xs2EKOq75QjXqkxAFQ';
 
 var darkLayer = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/dark-v11/tiles/{z}/{x}/{y}?access_token=' + accessToken, {

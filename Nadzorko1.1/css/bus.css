@@ -1,0 +1,16 @@
+.bus-circle {
+    position: relative;
+    background-color: #ffffff;
+    color: #333333;
+    font-size: 14px;
+    font-weight: bold;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 32px;
+  }
+  
+  .bus-icon-image {
+    display: none;
+  }
