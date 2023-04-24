@@ -2,11 +2,11 @@ function createBusIcon(busLine) {
     return L.divIcon({
       className: 'bus-icon',
       html: `<div class="bus-circle">${busLine}</div>`,
-      iconSize: [32, 32],
+      iconSize: [25, 25],
       zIndexOffset: -100
     });
   }
-  
+
   // Define a function to create the bus marker
   function createBusMarker(bus) {
     // Get the bus line name and bearing from the bus object
