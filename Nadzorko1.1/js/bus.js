@@ -1,9 +1,9 @@
-// Make icons n shit like that
-function createBusIcon(busLine, bearing) {
+function createBusIcon(busLine) {
     return L.divIcon({
       className: 'bus-icon',
       html: `<div class="bus-circle">${busLine}</div>`,
-      iconSize: [32, 32]
+      iconSize: [32, 32],
+      zIndexOffset: -100
     });
   }
   
@@ -53,19 +53,20 @@ function createBusIcon(busLine, bearing) {
   }
 
   // Define a function to update the bus markers on the map
-  function updateBusMarkers() {
+// Define a function to update the bus markers on the map
+function updateBusMarkers() {
     console.log('Updating bus markers...');
     // Fetch the bus data from the API
     fetch('https://api.split.prometko.si/vehicles')
       .then(response => response.json())
       .then(data => {
         console.log('Fetched bus data:', data);
-        if (data && Array.isArray(data)) { // add this check
+        if (data && data.success && Array.isArray(data.data)) { // add this check
           // Remove existing bus markers from the map if the timestamp is too old
           mymap.eachLayer(layer => {
             if (layer.options.icon && layer.options.icon.options.className === 'bus-icon') {
               const busId = layer.options.busId;
-              const busData = data.find(bus => bus.id === busId);
+              const busData = data.data.find(bus => bus.id === busId);
               if (!busData || isOldTimestamp(busData.timestamp)) {
                 // Set opacity to 0.1 instead of removing the layer
                 layer.setOpacity(0.1);
@@ -83,7 +84,7 @@ function createBusIcon(busLine, bearing) {
             }
           });
           // Loop through the bus data and add new markers to the map
-          data.forEach(bus => {
+          data.data.forEach(bus => {
             if (bus.latitude && bus.longitude) {
               const busId = bus.id;
               const existingMarker = findBusMarker(busId);
@@ -106,9 +107,9 @@ function createBusIcon(busLine, bearing) {
       })
       .catch(error => console.error(error));
   }
-
-// Wait for the window to load before calling the updateBusMarkers function
-window.addEventListener('load', () => {
+    
+    // Wait for the window to load before calling the updateBusMarkers function
+    window.addEventListener('load', () => {
     updateBusMarkers();
-    setInterval(updateBusMarkers, 1000);
-  });
+    setInterval(updateBusMarkers, 1000); // change the interval to 10 seconds
+    });
