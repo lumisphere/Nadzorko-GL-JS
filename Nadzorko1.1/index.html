@@ -22,18 +22,6 @@
 <body>
     <div id="mapid"></div>
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
-    <script>
-        var mymap = L.map('mapid').setView([43.5081, 16.4402], 13);
-
-        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoidmVrZWpzbiIsImEiOiJja25ubHFoMWIxNXZ0MnNwbjFtaW1nbnFmIn0.8pX2xs2EKOq75QjXqkxAFQ', {
-            attribution: '',
-            maxZoom: 19,
-            id: 'mapbox/dark-v11', // <-- Change the ID to a dark mode style ID
-            tileSize: 512,
-            zoomOffset: -1,
-            crossOrigin: 'anonymous',
-            integrity: 'sha384-1+nth7iM/vj9ohVg1fCwtOk0V7PzGBCs0oGYOYiLzryQdd1mkDd1Zt04K/moEFrT'
-        }).addTo(mymap);
-    </script>
+    <script src="js/map.js"></script>
 </body>
 </html>
