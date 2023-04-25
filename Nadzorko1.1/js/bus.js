@@ -52,7 +52,6 @@ function createBusIcon(busLine) {
     return new Date(timestamp) < fiveMinutesAgo;
   }
 
-  // Define a function to update the bus markers on the map
 // Define a function to update the bus markers on the map
 function updateBusMarkers() {
     console.log('Updating bus markers...');
@@ -111,5 +110,5 @@ function updateBusMarkers() {
     // Wait for the window to load before calling the updateBusMarkers function
     window.addEventListener('load', () => {
     updateBusMarkers();
-    setInterval(updateBusMarkers, 1000); // change the interval to 10 seconds
+    setInterval(updateBusMarkers, 1000); // change the interval to 1 second
     });
