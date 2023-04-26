@@ -1,7 +1,7 @@
 var mymap = L.map('mapid', {
     zoomControl: false
 }).setView([43.5081, 16.4402], 13);
-var accessToken = 'pk.eyJ1IjoidmVrZWpzbiIsImEiOiJja25ubHFoMWIxNXZ0MnNwbjFtaW1nbnFmIn0.8pX2xs2EKOq75QjXqkxAFQ';
+var accessToken = 'sk.eyJ1IjoidW5pY29ybnMxMjMiLCJhIjoiY2xneGZlbW1lMDFkODNrbWswaml2M3dzNCJ9.mE7cyKWSYdI5GU4YieGcag';
 
 var osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
