@@ -41,8 +41,5 @@
     top: 50%;
     left: 50%;
     transform-origin: top left;
-    transform: translateY(-50%) translateX(-50%);
-    width: 17px;
-    height: 17px;
     z-index: 0;
   }

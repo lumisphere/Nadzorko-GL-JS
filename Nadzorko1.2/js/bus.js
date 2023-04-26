@@ -50,6 +50,7 @@ async function fetchBusData() {
           icon: L.divIcon({
             className: "",
             html: busMarkerElement.outerHTML,
+            iconAnchor: [12.5, 12.5]
           }),
           id: bus.id,
         }).addTo(map);

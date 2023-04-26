@@ -8,7 +8,7 @@ var osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
     maxZoom: 23,
     crossOrigin: 'anonymous',
     id: 'osm'
-}).addTo(mymap);
+});
 
 var darkMatterLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attributions">CARTO</a>',
@@ -16,6 +16,11 @@ var darkMatterLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z
     crossOrigin: 'anonymous',
     id: 'darkMatter'
 });
+
+var maptilerdarkLayer = L.tileLayer('https://api.maptiler.com/maps/streets-v2-dark/{z}/{x}/{y}.png?key=v0X1HSm5SNBEcBxVk7iB', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://maptiler.com/">MapTiler</a>',
+  maxZoom: 23,
+}).addTo(mymap);
 
 var darkLayer = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/dark-v11/tiles/{z}/{x}/{y}?access_token=' + accessToken, {
     attribution: '',
@@ -68,6 +73,7 @@ var satelliteLayer = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satell
 var baseMaps = {
     "OSM": osmLayer,
     "DarkMatter": darkMatterLayer,
+    "Dark MapTilet": maptilerdarkLayer,
     "Dark": darkLayer,
     "Light": lightLayer,
     "Outdoors": outdoorsLayer,
