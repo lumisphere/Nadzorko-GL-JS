@@ -22,7 +22,8 @@
     font-size: 24px;
     border: none;
     border-radius: 35%;
-    background-color: #f1f1f1;
+    color: #000000;  /* change ico color */
+    background-color: #f1f1f1; /* change bg color*/
     cursor: pointer;
     z-index: 1001;
   }
@@ -36,10 +37,10 @@
     padding-top: 72px;
     padding-left: 20px;
     border-radius: 0%;
-    color: #ffffff;
-    background-color: #353b48;
+    color: #ffffff;  /* change font color */
+    background-color: #353b48;  /* change bg color */
     overflow-x: hidden;
-    transition: 0.3s;
+    transition: 0.3s; /* transition speed (but im making this so if i ever want to make it slower or faster i can ig */
     z-index: 1000;
     font-family: 'Inter', sans-serif;
     border-top-right-radius: 50px;
@@ -69,7 +70,7 @@
     width: 0;
   }
   
-  .toggle-slider {
+  .toggle-slider {    /* what does this do edit: nvm i figured it out xd was just commenting da code n brain fart */
     position: absolute;
     top: 0;
     left: 0;
