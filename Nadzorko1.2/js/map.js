@@ -30,8 +30,7 @@ var darkLayer = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/dark-v11/ti
     zoomOffset: -1,
     crossOrigin: 'anonymous',
     id: 'dark',
-    // Set the default layer to be the dark layer
-    // You can change this to any of the other layers if you want a different default
+
 });
 
 var lightLayer = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/{z}/{x}/{y}?access_token=' + accessToken, {
