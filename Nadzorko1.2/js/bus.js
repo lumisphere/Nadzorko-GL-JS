@@ -1,8 +1,10 @@
 let inactiveMarkers = [];
 
+var baseapi = 'https://api.split.prometko.si'
+
 // Function to fetch bus data from the API
 async function fetchBusData() {
-    const response = await fetch("https://api.split.prometko.si/vehicles");
+    const response = await fetch(baseapi + '/vehicles');
     const data = await response.json();
     return data.success ? data.data : [];
   }
