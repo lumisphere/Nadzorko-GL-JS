@@ -1,0 +1,29 @@
+.sidebar-toggle {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+    border: none;
+    background-color: #f1f1f1;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Hide sidebar by default */
+    width: 250px;
+    height: 100%;
+    background-color: #f1f1f1;
+    overflow-x: hidden;
+    transition: 0.3s;
+    z-index: 1000;
+  }
+  
+  .sidebar.active {
+    left: 0;
+  }
+  
