@@ -1,7 +1,7 @@
 var mymap = L.map('mapid', {
     zoomControl: false
 }).setView([43.5081, 16.4402], 13);
-var accessToken = 'sk.eyJ1IjoidW5pY29ybnMxMjMiLCJhIjoiY2xneGZlbW1lMDFkODNrbWswaml2M3dzNCJ9.mE7cyKWSYdI5GU4YieGcag';
+var accessToken = 'pk.eyJ1IjoiYW5hbHdvb2QiLCJhIjoiY2xneWJlMm9lMDd2MzNtcDQwOXJwcGtwbCJ9.WwrjO_cMftXcXMOZgucD9Q';
 
 var osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -73,11 +73,11 @@ var satelliteLayer = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satell
 var baseMaps = {
     "OSM": osmLayer,
     "DarkMatter": darkMatterLayer,
-    "Dark MapTilet": maptilerdarkLayer,
-    "Dark": darkLayer,
-    "Light": lightLayer,
-    "Outdoors": outdoorsLayer,
-    "Streets": streetsLayer,
-    "Satellite": satelliteLayer,
+    "Dark MapTiler": maptilerdarkLayer,
+    "Dark MapBox": darkLayer,
+    "Light MapBox": lightLayer,
+    "Outdoors MapBox": outdoorsLayer,
+    "Streets MapBox": streetsLayer,
+    "Satellite MapBox": satelliteLayer,
 };
 L.control.layers(baseMaps).addTo(mymap);

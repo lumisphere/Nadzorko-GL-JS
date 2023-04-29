@@ -56,7 +56,10 @@ async function fetchBusData() {
         }).addTo(map);
         markers.push(marker);
       } else {
-        marker.setLatLng([bus.latitude, bus.longitude]);
+        marker.slideTo([bus.latitude, bus.longitude], {
+          duration: 500, // Animation duration in milliseconds
+          keepAtCenter: false,
+        });
         marker.getElement().style.opacity = opacity;
       }
   
