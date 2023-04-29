@@ -1,3 +1,5 @@
+let inactiveMarkers = [];
+
 // Function to fetch bus data from the API
 async function fetchBusData() {
     const response = await fetch("https://api.split.prometko.si/vehicles");
@@ -32,43 +34,47 @@ async function fetchBusData() {
     return markerElement;
   }
   
-  // Function to update bus markers
-  async function updateBusMarkers(map, markers) {
-    const busData = await fetchBusData();
-  
-    busData.forEach((bus) => {
-      const timeDifference = new Date() - new Date(bus.timestamp);
-      const opacity = timeDifference > 5 * 60 * 1000 ? 0.1 : 1;
-  
-      let marker = markers.find((m) => m.options.id === bus.id);
-  
-      if (!marker) {
-        const isActive = opacity === 1;
-        const busMarkerElement = createBusMarker(bus, isActive);
-      //  busMarkerElement.style.opacity = opacity; //
-  
-        marker = L.marker([bus.latitude, bus.longitude], {
-          icon: L.divIcon({
-            className: "",
-            html: busMarkerElement.outerHTML,
-            iconAnchor: [12.5, 12.5]
-          }),
-          id: bus.id,
-        }).addTo(map);
-        markers.push(marker);
-      } else {
-        marker.slideTo([bus.latitude, bus.longitude], {
-          duration: 500, // Animation duration in milliseconds
-          keepAtCenter: false,
-        });
-        marker.getElement().style.opacity = opacity;
+// Function to update bus markers
+async function updateBusMarkers(map, markers) {
+  const busData = await fetchBusData();
+
+  busData.forEach((bus) => {
+    const timeDifference = new Date() - new Date(bus.timestamp);
+    const opacity = timeDifference > 5 * 60 * 1000 ? 0.1 : 1;
+
+    let marker = markers.find((m) => m.options.id === bus.id);
+    const isActive = opacity === 1;
+    const busMarkerElement = createBusMarker(bus, isActive);
+
+    if (!marker) {
+      // busMarkerElement.style.opacity = opacity;
+
+      marker = L.marker([bus.latitude, bus.longitude], {
+        icon: L.divIcon({
+          className: "",
+          html: busMarkerElement.outerHTML,
+          iconAnchor: [12.5, 12.5],
+        }),
+        id: bus.id,
+      }).addTo(map);
+      markers.push(marker);
+
+      if (!isActive) {
+        inactiveMarkers.push(marker);
       }
-  
-      // Rotate the pointer based on the bus bearing
-      const pointer = marker.getElement().querySelector(".pointer");
-      pointer.style.transform = `rotate(${bus.bearing + 225}deg)`;
-    });
-  }
+    } else {
+      marker.slideTo([bus.latitude, bus.longitude], {
+        duration: 500, // Animation duration in milliseconds
+        keepAtCenter: false,
+      });
+      marker.getElement().style.opacity = opacity;
+    }
+
+    // Rotate the pointer based on the bus bearing
+    const pointer = marker.getElement().querySelector(".pointer");
+    pointer.style.transform = `rotate(${bus.bearing + 225}deg)`;
+  });
+}
   
   const markers = [];
   // Call the updateBusMarkers function to update the markers on the map
