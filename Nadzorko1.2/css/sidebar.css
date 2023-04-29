@@ -17,6 +17,7 @@
     left: -250px; /* Hide sidebar by default */
     width: 250px;
     height: 100%;
+    padding-top: 72px;
     background-color: #f1f1f1;
     overflow-x: hidden;
     transition: 0.3s;
@@ -26,4 +27,51 @@
   .sidebar.active {
     left: 0;
   }
+
+  .toggle-label {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 20px;
+  }
   
+  .toggle-input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
+  
+  .toggle-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 30px;
+    background-color: #ccc;
+    border-radius: 34px;
+    transition: 0.4s;
+  }
+  
+  .toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+  }
+  
+  .toggle-input:checked + .toggle-slider {
+    background-color: #2196F3;
+  }
+  
+  .toggle-input:checked + .toggle-slider:before {
+    transform: translateX(10px);
+  }

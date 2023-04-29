@@ -38,14 +38,14 @@ async function fetchBusData() {
   
     busData.forEach((bus) => {
       const timeDifference = new Date() - new Date(bus.timestamp);
-      const opacity = timeDifference > 5 * 60 * 1000 ? 0.2 : 1;
+      const opacity = timeDifference > 5 * 60 * 1000 ? 0.1 : 1;
   
       let marker = markers.find((m) => m.options.id === bus.id);
   
       if (!marker) {
         const isActive = opacity === 1;
         const busMarkerElement = createBusMarker(bus, isActive);
-        busMarkerElement.style.opacity = opacity;
+      //  busMarkerElement.style.opacity = opacity; //
   
         marker = L.marker([bus.latitude, bus.longitude], {
           icon: L.divIcon({

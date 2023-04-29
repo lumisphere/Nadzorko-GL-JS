@@ -27,9 +27,14 @@
     <div id="mapid"></div>
     <div id="layer-control-toggle" class="leaflet-control-layers-toggle"></div>
     <button id="sidebar-toggle" class="sidebar-toggle">☰</button>
-<div id="sidebar" class="sidebar">
-  <!-- Add your options here -->
-</div>
+    <div id="sidebar" class="sidebar">
+        <label for="toggle-inactive-buses" class="toggle-label">
+          Show Inactive Buses
+          <input type="checkbox" id="toggle-inactive-buses" class="toggle-input" checked>
+          <span class="toggle-slider"></span>
+        </label>
+        <!-- Add more options here -->
+      </div>
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     <script src='https://unpkg.com/leaflet.marker.slideto@0.2.0/Leaflet.Marker.SlideTo.js'></script>
     <script src="js/map.js"></script>
