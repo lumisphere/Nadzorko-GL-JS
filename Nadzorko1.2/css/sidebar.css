@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('fonts/Inter-Regular.ttf') format('truetype');
+  }
+
 .sidebar-toggle {
     position: fixed;
     top: 10px;
@@ -15,15 +20,18 @@
   .sidebar {
     position: fixed;
     top: 0;
-    left: -250px; /* Hide sidebar by default */
+    left: -270px; /* Hide sidebar by default */
     width: 250px;
     height: 100%;
     padding-top: 72px;
+    padding-left: 20px;
     border-radius: 0%;
+    color: #ffffff;
     background-color: #353b48;
     overflow-x: hidden;
     transition: 0.3s;
     z-index: 1000;
+    font-family: 'Inter', sans-serif;
   }
   
   .sidebar.active {
