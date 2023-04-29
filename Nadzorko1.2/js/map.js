@@ -5,7 +5,7 @@ var accessToken = 'pk.eyJ1IjoiYW5hbHdvb2QiLCJhIjoiY2xneWJlMm9lMDd2MzNtcDQwOXJwcG
 
 var osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    maxZoom: 23,
+    maxZoom: 19,
     crossOrigin: 'anonymous',
     id: 'osm'
 });
@@ -19,7 +19,7 @@ var darkMatterLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z
 
 var maptilerdarkLayer = L.tileLayer('https://api.maptiler.com/maps/streets-v2-dark/{z}/{x}/{y}.png?key=v0X1HSm5SNBEcBxVk7iB', {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://maptiler.com/">MapTiler</a>',
-  maxZoom: 23,
+  maxZoom: 22,
 }).addTo(mymap);
 
 var darkLayer = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/dark-v11/tiles/{z}/{x}/{y}?access_token=' + accessToken, {

@@ -6,9 +6,9 @@ async function fetchBusData() {
   }
   
   // Function to create bus marker
-  function createBusMarker(bus) {
+  function createBusMarker(bus, isActive) {
     const markerElement = document.createElement("div");
-    markerElement.className = "bus-marker";
+    markerElement.className = `bus-marker ${isActive ? "active" : "inactive"}`;
   
     const routeShortName = document.createElement("span");
     routeShortName.className = "route-short-name";
@@ -43,7 +43,8 @@ async function fetchBusData() {
       let marker = markers.find((m) => m.options.id === bus.id);
   
       if (!marker) {
-        const busMarkerElement = createBusMarker(bus);
+        const isActive = opacity === 1;
+        const busMarkerElement = createBusMarker(bus, isActive);
         busMarkerElement.style.opacity = opacity;
   
         marker = L.marker([bus.latitude, bus.longitude], {
