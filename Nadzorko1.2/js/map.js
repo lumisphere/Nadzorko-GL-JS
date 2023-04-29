@@ -2,6 +2,7 @@ var mymap = L.map('mapid', {
     zoomControl: false
 }).setView([43.5081, 16.4402], 13);
 var accessToken = 'pk.eyJ1IjoiYW5hbHdvb2QiLCJhIjoiY2xneWJlMm9lMDd2MzNtcDQwOXJwcGtwbCJ9.WwrjO_cMftXcXMOZgucD9Q';
+var maptilerAPI = 'v0X1HSm5SNBEcBxVk7iB';
 
 var osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -17,7 +18,7 @@ var darkMatterLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z
     id: 'darkMatter'
 });
 
-var maptilerdarkLayer = L.tileLayer('https://api.maptiler.com/maps/streets-v2-dark/{z}/{x}/{y}.png?key=v0X1HSm5SNBEcBxVk7iB', {
+var maptilerdarkLayer = L.tileLayer('https://api.maptiler.com/maps/streets-v2-dark/{z}/{x}/{y}.png?key=' + maptilerAPI, {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://maptiler.com/">MapTiler</a>',
   maxZoom: 22,
 }).addTo(mymap);
