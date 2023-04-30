@@ -38,10 +38,30 @@
       </div>
     <button id="layers-toggle" class="layers-toggle"><i class="fa-solid fa-layer-group" style="color: #000000;"></i></button>
     <div id="layers-sidebar" class="sidebar unselectable">
-        <div id="layers-content" class="layers-content">
-          <!-- Layer control content will go here -->
+      <div class="provider">
+        <div class="provider-title"><i class="fa-solid fa-caret-down"></i>OSM</div>
+        <div class="layers">
+          <div class="layer-option" data-layer="osm">Classic</div>
+          <div class="layer-option" data-layer="darkmatter">Dark</div>
         </div>
       </div>
+      <div class="provider">
+        <div class="provider-title"><i class="fa-solid fa-caret-down"></i>MapBox</div>
+        <div class="layers">
+          <div class="layer-option" data-layer="dark">Dark</div>
+          <div class="layer-option" data-layer="light">Light</div>
+          <div class="layer-option" data-layer="outdoors">Outdoors</div>
+          <div class="layer-option" data-layer="streets">Streets</div>
+          <div class="layer-option" data-layer="satellite">Satellite</div>
+        </div>
+      </div>
+      <div class="provider">
+        <div class="provider-title"><i class="fa-solid fa-caret-down"></i>MapLibre</div>
+        <div class="layers">
+          <div class="layer-option" data-layer="maptilerdark">Dark</div>
+        </div>
+      </div>
+    </div>
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     <script src='https://unpkg.com/leaflet.marker.slideto@0.2.0/Leaflet.Marker.SlideTo.js'></script>
     <script src="https://kit.fontawesome.com/c7e336cffb.js" crossorigin="anonymous"></script>

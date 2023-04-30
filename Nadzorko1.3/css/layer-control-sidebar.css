@@ -33,3 +33,93 @@
   #layers-sidebar.open {
     left: calc(100% - 270px);
   }
+
+  /* layers */
+.provider {
+    margin-bottom: 1rem;
+  }
+  
+  .provider-title {
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+  }
+
+  .provider:first-child .provider-title {
+    margin-top: 72px;
+  }
+  
+  .provider-title i {
+    transition: transform 0.3s;
+    margin-right: 10px;
+  }
+  
+  .layers {
+    max-height: 0;
+    overflow: hidden;
+    padding-left: 1rem;
+    transition: max-height 0.3s;
+  }
+  
+  .layer-option {
+    cursor: pointer;
+    margin-top: 0.5rem;
+  }
+
+  .layer-option.selected {
+    background-color: #FF9800;
+    color: #000000;
+    border-radius: 5px;
+    padding: 3px 10px;
+    margin: 3px 0;
+  }
+
+/* attributes*/
+
+  .toggle-container {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  
+  .toggle-switch {
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 20px;
+    margin-right: 4px;
+  }
+  
+  .toggle-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    cursor: pointer;
+    border-radius: 34px;
+    transition: 0.4s;
+  }
+  
+  .toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+  }
+  
+  input:checked + .toggle-slider {
+    background-color: #2196F3;
+  }
+  
+  input:checked + .toggle-slider:before {
+    transform: translateX(10px);
+  }
