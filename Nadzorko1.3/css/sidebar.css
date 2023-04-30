@@ -89,7 +89,7 @@
   }
   
   .toggle-input:checked + .toggle-slider {
-    background-color: #FF9800;
+    background-color: #FFC107;
   }
   
   .toggle-input:checked + .toggle-slider:before {
