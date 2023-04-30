@@ -113,20 +113,3 @@ layerOptions.forEach((option) => {
 
 // Set the initial active layer
 mymap.activeLayer = 'darkmatter';
-
-mymap.attributionControl.setPrefix(false);
-mymap.attributionControl.addAttribution('');
-
-// Function to toggle attributions
-function toggleAttributions() {
-  const checkbox = document.getElementById('toggle-attributions');
-  
-  if (checkbox.checked) {
-    mymap.attributionControl.setPrefix('&copy; <a href="https://leafletjs.com">Leaflet</a>');
-  } else {
-    mymap.attributionControl.setPrefix(false);
-  }
-}
-
-// Add event listener to the "Show attributions" toggle
-document.getElementById('toggle-attributions').addEventListener('change', toggleAttributions);
