@@ -12,3 +12,24 @@
     cursor: pointer;
     z-index: 1001;
   }
+
+  #layers-sidebar {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 270px;
+    height: 100%;
+    background-color: #000000;
+    transition: left 0.3s;
+    z-index: 1000;
+    padding: 1rem;
+    border-radius: 0%;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    overflow-y: auto;
+/*    box-shadow: -5px 0px 5px rgba(0, 0, 0, 0.3); */ /* Looks gay so currently not implementing it, however eventually i might */
+  }
+  
+  #layers-sidebar.open {
+    left: calc(100% - 270px);
+  }

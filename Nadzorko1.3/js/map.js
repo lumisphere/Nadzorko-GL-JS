@@ -16,12 +16,12 @@ var darkMatterLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z
     maxZoom: 23,
     crossOrigin: 'anonymous',
     id: 'darkMatter'
-});
+}).addTo(mymap);
 
 var maptilerdarkLayer = L.tileLayer('https://api.maptiler.com/maps/streets-v2-dark/{z}/{x}/{y}.png?key=' + maptilerAPI, {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://maptiler.com/">MapTiler</a>',
   maxZoom: 22,
-}).addTo(mymap);
+});
 
 var darkLayer = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/dark-v11/tiles/{z}/{x}/{y}?access_token=' + accessToken, {
     attribution: '',
@@ -68,37 +68,3 @@ var satelliteLayer = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satell
     crossOrigin: 'anonymous',
     id: 'satellite',
 }); 
-
-function initCustomLayerControl() {
-    const layerControlContent = document.getElementById('layer-control-content');
-  
-    for (const layerName in baseMaps) {
-      const layerControlElement = document.createElement('div');
-      const layerControlInput = document.createElement('input');
-      layerControlInput.type = 'radio';
-      layerControlInput.name = 'layer-control';
-      layerControlInput.value = layerName;
-      layerControlInput.addEventListener('change', function () {
-        for (const otherLayerName in baseMaps) {
-          if (otherLayerName !== layerName) {
-            mymap.removeLayer(baseMaps[otherLayerName]);
-          }
-        }
-        mymap.addLayer(baseMaps[layerName]);
-      });
-  
-      if (mymap.hasLayer(baseMaps[layerName])) {
-        layerControlInput.checked = true;
-      }
-  
-      layerControlElement.appendChild(layerControlInput);
-      layerControlElement.appendChild(document.createTextNode(layerName));
-      layerControlContent.appendChild(layerControlElement);
-    }
-  
-    const layerControlToggle = document.getElementById('layer-control-toggle');
-    layerControlToggle.addEventListener('click', function () {
-      const layerControlSidebar = document.getElementById('layer-control-sidebar');
-      layerControlSidebar.classList.toggle('active');
-    });
-  }
