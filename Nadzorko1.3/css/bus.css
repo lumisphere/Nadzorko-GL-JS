@@ -11,8 +11,10 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    font-family: 'Inter', sans-serif;
     transform: translate(-50%, -50%);
     color: #333333; /* Customize the font color here */
+    font-weight: bold;
     z-index: 2;
   }
   
