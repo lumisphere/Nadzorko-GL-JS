@@ -33,11 +33,11 @@
     padding-left: 20px;
     border-radius: 0%;
     color: #ffffff;  /* change font color */
-    background-color: #353b48;  /* change bg color */
+    background-color: #000000;  /* change bg color */
     overflow-x: hidden;
     transition: 0.3s; /* transition speed (but im making this so if i ever want to make it slower or faster i can ig */
     z-index: 1000;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Roboto', sans-serif;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
     overflow: hidden;
@@ -71,7 +71,7 @@
     left: 0;
     height: 20px;
     width: 30px;
-    background-color: #ccc;
+    background-color: #ffffff;
     border-radius: 34px;
     transition: 0.4s;
   }
@@ -83,13 +83,13 @@
     width: 14px;
     left: 3px;
     bottom: 3px;
-    background-color: white;
+    background-color: #000000;
     border-radius: 50%;
     transition: 0.4s;
   }
   
   .toggle-input:checked + .toggle-slider {
-    background-color: #2196F3;
+    background-color: #FFEB3B;
   }
   
   .toggle-input:checked + .toggle-slider:before {
