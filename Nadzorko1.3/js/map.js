@@ -69,15 +69,36 @@ var satelliteLayer = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satell
     id: 'satellite',
 }); 
 
-// Add the layer control button to the map
-var baseMaps = {
-    "OSM": osmLayer,
-    "DarkMatter": darkMatterLayer,
-    "Dark MapTiler": maptilerdarkLayer,
-    "Dark MapBox": darkLayer,
-    "Light MapBox": lightLayer,
-    "Outdoors MapBox": outdoorsLayer,
-    "Streets MapBox": streetsLayer,
-    "Satellite MapBox": satelliteLayer,
-};
-L.control.layers(baseMaps).addTo(mymap);
+function initCustomLayerControl() {
+    const layerControlContent = document.getElementById('layer-control-content');
+  
+    for (const layerName in baseMaps) {
+      const layerControlElement = document.createElement('div');
+      const layerControlInput = document.createElement('input');
+      layerControlInput.type = 'radio';
+      layerControlInput.name = 'layer-control';
+      layerControlInput.value = layerName;
+      layerControlInput.addEventListener('change', function () {
+        for (const otherLayerName in baseMaps) {
+          if (otherLayerName !== layerName) {
+            mymap.removeLayer(baseMaps[otherLayerName]);
+          }
+        }
+        mymap.addLayer(baseMaps[layerName]);
+      });
+  
+      if (mymap.hasLayer(baseMaps[layerName])) {
+        layerControlInput.checked = true;
+      }
+  
+      layerControlElement.appendChild(layerControlInput);
+      layerControlElement.appendChild(document.createTextNode(layerName));
+      layerControlContent.appendChild(layerControlElement);
+    }
+  
+    const layerControlToggle = document.getElementById('layer-control-toggle');
+    layerControlToggle.addEventListener('click', function () {
+      const layerControlSidebar = document.getElementById('layer-control-sidebar');
+      layerControlSidebar.classList.toggle('active');
+    });
+  }

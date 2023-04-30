@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="css/bus.css" />
     <link rel="stylesheet" href="css/businfo.css" />
     <link rel="stylesheet" href="css/sidebar.css" />
+    <link rel="stylesheet" href="css/layer-control-sidebar.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl7/1L_dstPt3J9V7T/lgWIF3nV7e8Dg5s6RUdnBof" crossorigin="anonymous" />
     <style>
         html, body {
             margin: 0;
@@ -25,7 +27,6 @@
 </head>
 <body>
     <div id="mapid"></div>
-    <div id="layer-control-toggle" class="leaflet-control-layers-toggle"></div>
     <button id="sidebar-toggle" class="sidebar-toggle">☰</button>
     <div id="sidebar" class="sidebar unselectable">
         <label for="toggle-inactive-buses" class="toggle-label">
@@ -35,8 +36,11 @@
         </label>
         <!-- Add more options here -->
       </div>
+    <button id="layers-toggle" class="layers-toggle"><i class="fa-solid fa-layer-group" style="color: #000000;"></i></button>
+
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     <script src='https://unpkg.com/leaflet.marker.slideto@0.2.0/Leaflet.Marker.SlideTo.js'></script>
+    <script src="https://kit.fontawesome.com/c7e336cffb.js" crossorigin="anonymous"></script>
     <script src="js/map.js"></script>
     <script src="js/bus.js"></script>
     <script src="js/businfo.js"></script>
