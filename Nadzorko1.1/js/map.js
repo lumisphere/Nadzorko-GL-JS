@@ -1,7 +1,7 @@
 var mymap = L.map('mapid', {
     zoomControl: false
 }).setView([43.5081, 16.4402], 13);
-var accessToken = 'pk.eyJ1IjoidmVrZWpzbiIsImEiOiJja25ubHFoMWIxNXZ0MnNwbjFtaW1nbnFmIn0.8pX2xs2EKOq75QjXqkxAFQ';
+var accessToken = 'pk.eyJ1IjoiYW5hbHdvb2QiLCJhIjoiY2xneWJlMm9lMDd2MzNtcDQwOXJwcGtwbCJ9.WwrjO_cMftXcXMOZgucD9Q';
 
 var darkLayer = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/dark-v11/tiles/{z}/{x}/{y}?access_token=' + accessToken, {
     attribution: '',
