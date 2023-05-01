@@ -93,3 +93,35 @@
     border-radius: 9px;
     font-weight: bold;
   }
+
+  .gar-number {
+    background-color: #2196F3; /* Change this to the desired background color */
+    color: #000000;
+    padding: 3px 6px;
+    border-radius: 9px;
+    font-weight: bold;
+  }
+
+  .model-text {
+    background-color: #03A9F4; /* Change this to the desired background color */
+    color: #000000;
+    padding: 3px 6px;
+    border-radius: 9px;
+    font-weight: bold;
+  }
+
+  .type-text {
+    background-color: #00BCD4; /* Change this to the desired background color */
+    color: #000000;
+    padding: 3px 6px;
+    border-radius: 9px;
+    font-weight: bold;
+  }
+
+  .plates-text {
+    background-color: #009688; /* Change this to the desired background color */
+    color: #000000;
+    padding: 3px 6px;
+    border-radius: 9px;
+    font-weight: bold;
+  }

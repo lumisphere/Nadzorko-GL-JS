@@ -51,10 +51,10 @@ function toggleBusInfo(visible) {
           </div>
         </div>
         <div class="bus-info-bottom">
-        <p><strong>Garage Number:</strong> ${garageNumber}</p>
-        <p><strong>Model:</strong> ${busDetails.model}</p>
-        <p><strong>Type:</strong> ${busDetails.type}</p>
-        <p><strong>Plates:</strong> ${busDetails.plates}</p>
+        <p><strong>Garage Number:</strong> <span class="gar-number">${garageNumber}</p>
+        <p><strong>Model:</strong> <span class="model-text">${busDetails.model}</p>
+        <p><strong>Type:</strong> <span class="type-text">${busDetails.type}</p>
+        <p><strong>Plates:</strong> <span class="plates-text">${busDetails.plates}</p>
         </div>
       `;
   
