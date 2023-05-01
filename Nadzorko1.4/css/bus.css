@@ -42,6 +42,7 @@
     border: 0px solid #000000;
     border-radius: 45%;
     color: #fff; /* Customize the font color here */
+    font-family: 'Inter', sans-serif;
     z-index: 2;
   }
   
