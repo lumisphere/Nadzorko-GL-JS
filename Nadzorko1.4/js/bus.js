@@ -62,6 +62,7 @@ async function updateBusMarkers(map, markers) {
     
       marker.on("click", () => {
         toggleBusInfo(true);
+        updateBusInfo(bus.garageNumber);
       });
     
       markers.push(marker);
