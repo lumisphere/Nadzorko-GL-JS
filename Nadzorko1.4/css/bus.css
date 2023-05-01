@@ -22,14 +22,14 @@
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background-color: #f1c40f;
+    background-color: #FFC107;
     z-index: 1;
   }
   .bus-marker.inactive .bus-circle {
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background-color: #f1c40f;
+    background-color: #FFC107;
     z-index: 1;
   }
   
@@ -38,7 +38,7 @@
     bottom: -15px; /* Adjust this value to move the garage number up or down */
     font-size: 8px;
     padding: 2px;
-    background-color: #112B83;
+    background-color: #3F51B5;
     border: 0px solid #000000;
     border-radius: 45%;
     color: #fff; /* Customize the font color here */
