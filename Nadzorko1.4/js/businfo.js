@@ -28,8 +28,8 @@ function toggleBusInfo(visible) {
     if (busDetails) {
         const busInfo = document.getElementById("bus-info");
         busInfo.innerHTML = `
-            <button id="close-bus-info">Close</button>
-            <img src="${busDetails.imageUrl}" alt="Bus Image" width="330" height="210" />
+            <button id="close-bus-info"><i class="fa-solid fa-xmark" style="color: #ffffff;"></i></button>
+            <img src="${busDetails.imageUrl}" alt="Bus Image" width="330" height="210" style="border-radius: 25px;" />
             <div class="bus-info-text">
                 <p><strong>Model:</strong> ${busDetails.model}</p>
                 <p><strong>Type:</strong> ${busDetails.type}</p>

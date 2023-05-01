@@ -33,6 +33,15 @@
     cursor: pointer;
   }
 
+  body {
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+  }
+  
   .bus-info-text {
-    margin-top: 10px;
+    color: #ffffff;
+  }
+
+  .bus-image {
+    border-radius: 25px;
   }
