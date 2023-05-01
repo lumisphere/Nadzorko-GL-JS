@@ -28,31 +28,35 @@ function toggleBusInfo(visible) {
         const vehicleResponse = await fetch(`https://api.split.prometko.si/vehicle/${busId}`);
         const vehicleData = await vehicleResponse.json();
   
-        const routeName = vehicleData.data.routeName;
+        const routeName = busInfo.routeShortName;
         const pathwayName = vehicleData.data.fulfilmentRecord.pathwayName;
         const currentSpeed = Math.round(vehicleData.data.currentSpeed);
-        const timestamp = new Date(vehicleData.data.timestamp).toLocaleString();
-        const delayStartTime = new Date(vehicleData.data.fulfilmentRecord.delayStartTime).toLocaleString();
+        const timestamp = new Date(vehicleData.data.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit',second: '2-digit' });
+        const delayStartTime = new Date(vehicleData.data.fulfilmentRecord.delayStartTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit',second: '2-digit' });
+        const passengerCount = vehicleData.data.passangerCount; console.log(vehicleData);
   
         const busInfoElement = document.getElementById("bus-info");
         busInfoElement.innerHTML = `
-          <button id="close-bus-info"><i class="fa-solid fa-xmark" style="color: #ffffff;"></i></button>
+        <button id="close-bus-info"><i class="fa-solid fa-xmark" style="color: #ffffff;"></i></button>
+        <div class="bus-info-content">
           <img src="${busDetails.imageUrl}" alt="Bus Image" width="330" height="210" style="border-radius: 25px;" />
-          <div class="bus-info-text">
-            <p><strong>Model:</strong> ${busDetails.model}</p>
-            <p><strong>Type:</strong> ${busDetails.type}</p>
-            <p><strong>Plates:</strong> ${busDetails.plates}</p>
+          <div class="bus-info-details">
+            <div class="bus-info-right">
+            <p><span class="route-number">${routeName}</span> ${pathwayName}</p>
+              <p><strong>Speed:</strong> ${currentSpeed} km/h</p>
+              <p><strong>Last Fetch:</strong> ${timestamp}</p>
+              <p><strong>Start Time:</strong> ${delayStartTime}</p>
+              <p><strong>Passenger Count:</strong> ${passengerCount}</p>
+            </div>
           </div>
-          <div class="bus-info-right">
-            <p><strong>${routeName}</strong> - ${pathwayName}</p>
-            <p><strong>Current Speed:</strong> ${currentSpeed} km/h</p>
-            <p><strong>Timestamp:</strong> ${timestamp}</p>
-            <p><strong>Delay Start Time:</strong> ${delayStartTime}</p>
-          </div>
-          <div class="bus-info-bottom">
-            <p><strong>Garage Number:</strong> ${garageNumber}</p>
-          </div>
-        `;
+        </div>
+        <div class="bus-info-bottom">
+        <p><strong>Garage Number:</strong> ${garageNumber}</p>
+        <p><strong>Model:</strong> ${busDetails.model}</p>
+        <p><strong>Type:</strong> ${busDetails.type}</p>
+        <p><strong>Plates:</strong> ${busDetails.plates}</p>
+        </div>
+      `;
   
         document.getElementById("close-bus-info").addEventListener("click", () => {
           toggleBusInfo(false);

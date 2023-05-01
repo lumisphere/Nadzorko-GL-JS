@@ -4,7 +4,7 @@
     left: 270px; /* distance from the left edge of the screen */
     right: 270px; /* distance from the right edge of the screen */
     height: 500px; /* set the height of the bottom bar */
-    background-color: #000000;
+    background-color: #0f0f0f;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
     border-top-left-radius: 50px;
@@ -42,6 +42,22 @@
     color: #ffffff;
   }
 
-  .bus-image {
-    border-radius: 25px;
+  .bus-info-content {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .bus-info-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 10px;
+  }
+
+  .route-number {
+    background-color: #FFC107; /* Change this to the desired background color */
+    color: #000000;
+    padding: 3px 6px;
+    border-radius: 9px;
+    font-weight: bold;
   }
