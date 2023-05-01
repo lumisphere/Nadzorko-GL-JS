@@ -27,7 +27,7 @@
     position: fixed;
     top: 0;
     left: -270px; /* Hide sidebar by default */
-    width: 250px;
+    width: 270px;
     height: 100%;
     padding-top: 72px;
     padding-left: 20px;

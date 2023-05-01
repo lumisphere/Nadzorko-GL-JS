@@ -59,8 +59,13 @@ async function updateBusMarkers(map, markers) {
         }),
         id: bus.id,
       }).addTo(map);
+    
+      marker.on("click", () => {
+        toggleBusInfo(true);
+      });
+    
       markers.push(marker);
-
+    
       if (!isActive) {
         inactiveMarkers.push(marker);
       }
