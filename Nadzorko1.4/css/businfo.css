@@ -55,7 +55,39 @@
   }
 
   .route-number {
+    background-color: #8BC34A; /* Change this to the desired background color */
+    color: #000000;
+    padding: 3px 6px;
+    border-radius: 9px;
+    font-weight: bold;
+  }
+
+  .speed-number {
+    background-color: #CDDC39; /* Change this to the desired background color */
+    color: #000000;
+    padding: 3px 6px;
+    border-radius: 9px;
+    font-weight: bold;
+  }
+
+  .timestamp-number {
+    background-color: #FFEB3B; /* Change this to the desired background color */
+    color: #000000;
+    padding: 3px 6px;
+    border-radius: 9px;
+    font-weight: bold;
+  }
+
+  .delay-number {
     background-color: #FFC107; /* Change this to the desired background color */
+    color: #000000;
+    padding: 3px 6px;
+    border-radius: 9px;
+    font-weight: bold;
+  }
+
+  .pass-number {
+    background-color: #FF9800; /* Change this to the desired background color */
     color: #000000;
     padding: 3px 6px;
     border-radius: 9px;

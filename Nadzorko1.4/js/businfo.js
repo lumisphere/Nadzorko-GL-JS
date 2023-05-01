@@ -43,10 +43,10 @@ function toggleBusInfo(visible) {
           <div class="bus-info-details">
             <div class="bus-info-right">
             <p><span class="route-number">${routeName}</span> ${pathwayName}</p>
-              <p><strong>Speed:</strong> ${currentSpeed} km/h</p>
-              <p><strong>Last Fetch:</strong> ${timestamp}</p>
-              <p><strong>Start Time:</strong> ${delayStartTime}</p>
-              <p><strong>Passenger Count:</strong> ${passengerCount}</p>
+              <p><strong>Speed:</strong> <span class="speed-number">${currentSpeed}</span> km/h <p>
+              <p><strong>Last Fetch:</strong> <span class="timestamp-number">${timestamp}</p>
+              <p><strong>Start Time:</strong> <span class="delay-number">${delayStartTime}</p>
+              <p><strong>Passenger Count:</strong> <span class="pass-number">${passengerCount}</p>
             </div>
           </div>
         </div>
