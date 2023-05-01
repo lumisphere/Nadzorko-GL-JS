@@ -30,6 +30,26 @@ var maptilerdarkLayer = L.tileLayer('https://api.maptiler.com/maps/streets-v2-da
   maxZoom: 22,
 });
 
+var maptilerlightLayer = L.tileLayer('https://api.maptiler.com/maps/streets-v2-light/{z}/{x}/{y}.png?key=' + maptilerAPI, {
+  attribution: '',
+  maxZoom: 22,
+});
+
+var maptilerpastelLayer = L.tileLayer('https://api.maptiler.com/maps/streets-v2-pastel/{z}/{x}/{y}.png?key=' + maptilerAPI, {
+  attribution: '',
+  maxZoom: 22,
+});
+
+var maptilernightLayer = L.tileLayer('https://api.maptiler.com/maps/streets-v2-night/{z}/{x}/{y}.png?key=' + maptilerAPI, {
+  attribution: '',
+  maxZoom: 22,
+});
+
+var maptilerstreetsLayer = L.tileLayer('https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=' + maptilerAPI, {
+  attribution: '',
+  maxZoom: 22,
+});
+
 var darkLayer = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/dark-v11/tiles/{z}/{x}/{y}?access_token=' + accessToken, {
     attribution: '',
     maxZoom: 23,
@@ -90,6 +110,10 @@ function changeTileLayer(layerId) {
     streets: streetsLayer,
     satellite: satelliteLayer,
     maptilerdark: maptilerdarkLayer,
+    maptilerlight: maptilerlightLayer,
+    maptilerstreets: maptilerstreetsLayer,
+    maptilerpastel: maptilerpastelLayer,
+    maptilernight: maptilernightLayer,
   };
 
   mymap.removeLayer(layers[mymap.activeLayer]);
