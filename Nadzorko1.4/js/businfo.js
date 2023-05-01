@@ -31,8 +31,8 @@ function toggleBusInfo(visible) {
         const routeName = busInfo.routeShortName;
         const pathwayName = vehicleData.data.fulfilmentRecord.pathwayName;
         const currentSpeed = Math.round(vehicleData.data.currentSpeed);
-        const timestamp = new Date(vehicleData.data.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit',second: '2-digit' });
-        const delayStartTime = new Date(vehicleData.data.fulfilmentRecord.delayStartTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit',second: '2-digit' });
+        const timestamp = new Date(vehicleData.data.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit',second: '2-digit', hour12: false });
+        const delayStartTime = new Date(vehicleData.data.fulfilmentRecord.delayStartTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit',second: '2-digit', hour12: false });
         const passengerCount = vehicleData.data.passangerCount; console.log(vehicleData);
   
         const busInfoElement = document.getElementById("bus-info");
