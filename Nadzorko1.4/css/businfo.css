@@ -3,7 +3,7 @@
     bottom: 0;
     left: 270px; /* distance from the left edge of the screen */
     right: 270px; /* distance from the right edge of the screen */
-    height: 400px; /* set the height of the bottom bar */
+    height: 410px; /* set the height of the bottom bar */
     background-color: #0f0f0f;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -113,7 +113,7 @@
     font-weight: bold;
   }
 
-  .stop-number {
+  .planned-number {
     background-color: #FF9800 ; /* Change this to the desired background color */
     color: #000000;
     padding: 3px 6px;
@@ -121,8 +121,16 @@
     font-weight: bold;
   }
 
+  .stop-number {
+    background-color: #FF5722 ; /* Change this to the desired background color */
+    color: #000000;
+    padding: 3px 6px;
+    border-radius: 9px;
+    font-weight: bold;
+  }
+
   .pass-number {
-    background-color: #FF5722; /* Change this to the desired background color */
+    background-color: #F44336; /* Change this to the desired background color */
     color: #000000;
     padding: 3px 6px;
     border-radius: 9px;

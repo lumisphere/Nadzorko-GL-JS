@@ -33,13 +33,14 @@ function toggleBusInfo(visible) {
 
         // finding the next stop
         const nextStop = vehicleData.data.fulfilmentRecord.stops.find(stop => stop.ordinalNumber === nextStopIndex);
-        const nextStopName = nextStop ? nextStop.name : 'Next stop not found';
+        const nextStopName = nextStop ? nextStop.name : 'Next stop not found'; // to fix later, currently this shit makes it b current stop or like the last one idfk why
   
         const routeName = busInfo.routeShortName;
         const pathwayName = vehicleData.data.fulfilmentRecord.pathwayName;
         const currentSpeed = Math.round(vehicleData.data.currentSpeed);
         const timestamp = new Date(vehicleData.data.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit',second: '2-digit', hour12: false });
         const delayStartTime = new Date(vehicleData.data.fulfilmentRecord.delayStartTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit',second: '2-digit', hour12: false });
+        const plannedStartTime = new Date(vehicleData.data.fulfilmentRecord.plannedStartTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit',second: '2-digit', hour12: false });
         const passengerCount = vehicleData.data.passangerCount; console.log(vehicleData);
   
         const busInfoElement = document.getElementById("bus-info");
@@ -53,6 +54,7 @@ function toggleBusInfo(visible) {
               <p><strong>Speed:</strong> <span class="speed-number">${currentSpeed}</span> <span class="boring-text"<strong>km/h</strong></span><p>
               <p><strong>Last Fetch:</strong> <span class="timestamp-number">${timestamp}</p>
               <p><strong>Start Time:</strong> <span class="delay-number">${delayStartTime}</p>
+              <p><strong>Plan. Start:</strong> <span class="planned-number">${plannedStartTime}</p>
               <p><strong>Next Stop:</strong> <span class="stop-number">${nextStopName}</p>
               <p><strong>Passenger Count:</strong> <span class="pass-number">${passengerCount}</p>
             </div>
@@ -73,3 +75,5 @@ function toggleBusInfo(visible) {
       }
     }
   }
+
+  
