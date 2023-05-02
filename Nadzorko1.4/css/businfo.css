@@ -3,7 +3,7 @@
     bottom: 0;
     left: 270px; /* distance from the left edge of the screen */
     right: 270px; /* distance from the right edge of the screen */
-    height: 500px; /* set the height of the bottom bar */
+    height: 400px; /* set the height of the bottom bar */
     background-color: #0f0f0f;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -13,8 +13,14 @@
     transform: translateY(100%);
     z-index: 1000;
     overflow-y: auto; /* add scrolling for overflowing content */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
   }
-  
+
+  #bus-info::-webkit-scrollbar {
+    display: none;
+  }
+
   #bus-info.hidden {
     transform: translateY(100%);
   }
