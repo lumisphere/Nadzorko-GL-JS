@@ -49,7 +49,7 @@ function toggleBusInfo(visible) {
         <img class="bus-image" src="${busDetails.imageUrl}" alt="Bus Image" width="330" height="210" style="border-radius: 25px;" />
           <div class="bus-info-details">
             <div class="bus-info-right">
-            <p><span class="route-number">${routeName}</span> ${pathwayName}</p>
+            <p><span class="route-number">${routeName}</span> <span class="pathway-text"><strong>${pathwayName}</strong></span></p>
               <p><strong>Speed:</strong> <span class="speed-number">${currentSpeed}</span> km/h <p>
               <p><strong>Last Fetch:</strong> <span class="timestamp-number">${timestamp}</p>
               <p><strong>Start Time:</strong> <span class="delay-number">${delayStartTime}</p>
@@ -63,6 +63,7 @@ function toggleBusInfo(visible) {
         <p><strong>Model:</strong> <span class="model-text">${busDetails.model}</p>
         <p><strong>Type:</strong> <span class="type-text">${busDetails.type}</p>
         <p><strong>Plates:</strong> <span class="plates-text">${busDetails.plates}</p>
+        <p><strong>Debug:</strong> <span class="debug-text">${busId}</p>
         </div>
       `;
   
