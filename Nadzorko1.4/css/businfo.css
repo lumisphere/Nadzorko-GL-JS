@@ -62,9 +62,9 @@
     font-weight: bold;
   }
 
-/* gradient pathway text*/
+/* gradient for pathway and the km/h text*/
 
-  .pathway-text {
+  .boring-text {
       background-image: linear-gradient(45deg, #fffbd5, #FFEB3B, #fffbd5);
       background-size: 200% 100%;
       -webkit-background-clip: text;
