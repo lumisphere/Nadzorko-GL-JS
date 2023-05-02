@@ -16,7 +16,7 @@ function toggleBusInfo(visible) {
   }
   
   async function updateBusInfo(garageNumber) {
-    const busDetails = await fetchBusDetails(garageNumber);
+    const busDetails = await fetchBusDetails(garageNumber); console.log(fetchBusDetails);
   
     if (busDetails) {
       const busResponse = await fetch("https://api.split.prometko.si/vehicles");
@@ -39,7 +39,7 @@ function toggleBusInfo(visible) {
         busInfoElement.innerHTML = `
         <button id="close-bus-info"><i class="fa-solid fa-xmark" style="color: #ffffff;"></i></button>
         <div class="bus-info-content">
-          <img src="${busDetails.imageUrl}" alt="Bus Image" width="330" height="210" style="border-radius: 25px;" />
+        <img class="bus-image" src="${busDetails.imageUrl}" alt="Bus Image" width="330" height="210" style="border-radius: 25px;" />
           <div class="bus-info-details">
             <div class="bus-info-right">
             <p><span class="route-number">${routeName}</span> ${pathwayName}</p>

@@ -125,3 +125,12 @@
     border-radius: 9px;
     font-weight: bold;
   }
+
+  .bus-image {
+    width: auto;
+    max-width: 320px;
+    height: auto;
+    max-height: 210px;
+    object-fit: cover;
+    border-radius: 25px;
+  }
