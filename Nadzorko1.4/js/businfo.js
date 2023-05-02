@@ -27,6 +27,13 @@ function toggleBusInfo(visible) {
         const busId = busInfo.id;
         const vehicleResponse = await fetch(`https://api.split.prometko.si/vehicle/${busId}`);
         const vehicleData = await vehicleResponse.json();
+
+        // finding the next stop NUMBER
+        const nextStopIndex = vehicleData.data.nextStopIndex;
+
+        // finding the next stop
+        const nextStop = vehicleData.data.fulfilmentRecord.stops.find(stop => stop.ordinalNumber === nextStopIndex);
+        const nextStopName = nextStop ? nextStop.name : 'Next stop not found';
   
         const routeName = busInfo.routeShortName;
         const pathwayName = vehicleData.data.fulfilmentRecord.pathwayName;
@@ -46,6 +53,7 @@ function toggleBusInfo(visible) {
               <p><strong>Speed:</strong> <span class="speed-number">${currentSpeed}</span> km/h <p>
               <p><strong>Last Fetch:</strong> <span class="timestamp-number">${timestamp}</p>
               <p><strong>Start Time:</strong> <span class="delay-number">${delayStartTime}</p>
+              <p><strong>Next Stop:</strong> <span class="stop-number">${nextStopName}</p>
               <p><strong>Passenger Count:</strong> <span class="pass-number">${passengerCount}</p>
             </div>
           </div>

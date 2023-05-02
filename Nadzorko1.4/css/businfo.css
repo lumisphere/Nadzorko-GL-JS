@@ -86,8 +86,16 @@
     font-weight: bold;
   }
 
+  .stop-number {
+    background-color: #FF9800 ; /* Change this to the desired background color */
+    color: #000000;
+    padding: 3px 6px;
+    border-radius: 9px;
+    font-weight: bold;
+  }
+
   .pass-number {
-    background-color: #FF9800; /* Change this to the desired background color */
+    background-color: #FF5722; /* Change this to the desired background color */
     color: #000000;
     padding: 3px 6px;
     border-radius: 9px;
