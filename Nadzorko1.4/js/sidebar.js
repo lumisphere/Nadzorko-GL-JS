@@ -21,3 +21,19 @@ document.getElementById("sidebar-toggle").addEventListener("click", function () 
       }
     });
   });
+
+  const slideDurationInput = document.getElementById("slide-duration");
+  const slideDurationValue = document.getElementById("slide-duration-value");
+  
+  let updateSlideDurationTimeout;
+
+  slideDurationInput.addEventListener("input", function (event) {
+    const slideDuration = event.target.value;
+    slideDurationValue.textContent = `${slideDuration}ms`;
+  
+    clearTimeout(updateSlideDurationTimeout);
+    updateSlideDurationTimeout = setTimeout(() => {
+      // Update the slide duration globally
+      updateSlideDuration(slideDuration);
+    }, 300); // Wait for 300ms of inactivity before updating slide duration
+  });

@@ -36,11 +36,22 @@ function createBusMarker(bus, isActive) {
   return markerElement;
 }
 
+let slideDuration = 500; // Default slide duration
+
+// Function to update the slide duration globally
+function updateSlideDuration(newSlideDuration) {
+  slideDuration = newSlideDuration;
+}
+
 // Function to update bus markers
 async function updateBusMarkers(map, markers) {
   const busData = await fetchBusData();
 
   busData.forEach((bus) => {
+    // Add these console log statements
+    console.log("Bus Data:", bus);
+    console.log("Bus Coordinates:", [bus.latitude, bus.longitude]);
+
     const timeDifference = new Date() - new Date(bus.timestamp);
     const opacity = timeDifference > 5 * 60 * 1000 ? 0.1 : 1;
 
@@ -69,8 +80,8 @@ async function updateBusMarkers(map, markers) {
         inactiveMarkers.push(marker);
       }
     } else {
-      marker.slideTo([bus.latitude, bus.longitude], {
-        duration: 500,
+      slideMarker(marker, [bus.latitude, bus.longitude], {
+        duration: slideDuration,
         keepAtCenter: false,
       });
       marker.getElement().style.opacity = opacity;
@@ -80,6 +91,33 @@ async function updateBusMarkers(map, markers) {
     const pointer = marker.getElement().querySelector(".pointer");
     pointer.style.transform = `rotate(${bus.bearing + 225}deg)`;
   });
+}
+
+function slideMarker(marker, targetLatLng, options) {
+  const { duration, keepAtCenter } = options;
+  const map = marker._map;
+  const startPoint = map.project(marker.getLatLng());
+  const endPoint = map.project(targetLatLng);
+  const startTime = performance.now();
+
+  function animate(timestamp) {
+    const timeElapsed = timestamp - startTime;
+    const progress = Math.min(timeElapsed / duration, 1);
+    const intermediatePoint = startPoint.add(endPoint.subtract(startPoint).multiplyBy(progress));
+    const latLng = map.unproject(intermediatePoint);
+
+    marker.setLatLng(latLng);
+
+    if (keepAtCenter) {
+      map.panTo(latLng);
+    }
+
+    if (progress < 1) {
+      requestAnimationFrame(animate);
+    }
+  }
+
+  requestAnimationFrame(animate);
 }
 
 const markers = [];

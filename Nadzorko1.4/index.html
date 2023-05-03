@@ -34,6 +34,11 @@
           <input type="checkbox" id="toggle-inactive-buses" class="toggle-input" checked>
           <span class="toggle-slider"></span>
         </label>
+        <div class="slider-container">
+          <label for="slide-duration">Slide Duration:</label>
+          <input type="range" id="slide-duration" name="slide-duration" min="0" max="10000" step="100" value="500">
+          <span id="slide-duration-value">500ms</span>
+        </div>
         <!-- Add more options here -->
       </div>
     <button id="layers-toggle" class="layers-toggle"><i class="fa-solid fa-layer-group" style="color: #000000;"></i></button>
@@ -70,7 +75,6 @@
       <button id="close-bus-info"><i class="fa-solid fa-xmark" style="color: #ffffff;"></i></button>
     </div>
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
-    <script src='https://unpkg.com/leaflet.marker.slideto@0.2.0/Leaflet.Marker.SlideTo.js'></script>
     <script src="https://kit.fontawesome.com/c7e336cffb.js" crossorigin="anonymous"></script>
     <script src="js/map.js"></script>
     <script src="js/bus.js"></script>
