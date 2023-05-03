@@ -50,7 +50,15 @@
 
   .bus-info-content {
     display: flex;
-    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .bus-info-bottom {
+   background-color: #1f1c1c;
+   border-radius: 20px;
+   height: 40%; /* complete later too lazy rn, want to have it kind of sexy bg ig */
+   width: auto;
+   max-width: 20%;
   }
   
   .bus-info-details {
@@ -58,6 +66,8 @@
     flex-direction: column;
     justify-content: space-between;
     margin-left: 10px;
+    flex-grow: 1;
+    padding-left: 20;
   }
 
   .route-number {
@@ -179,9 +189,9 @@
 
   .bus-image {
     width: auto;
-    max-width: 320px;
+    max-width: 300px;
     height: auto;
-    max-height: 210px;
+    max-height: 205px;
     object-fit: cover;
     border-radius: 25px;
   }

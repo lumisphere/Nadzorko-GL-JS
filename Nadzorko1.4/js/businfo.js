@@ -47,7 +47,7 @@ function toggleBusInfo(visible) {
         busInfoElement.innerHTML = `
         <button id="close-bus-info"><i class="fa-solid fa-xmark" style="color: #ffffff;"></i></button>
         <div class="bus-info-content">
-        <img class="bus-image" src="${busDetails.imageUrl}" alt="Bus Image" width="330" height="210" style="border-radius: 25px;" />
+        <img class="bus-image" src="${busDetails.imageUrl}" alt="Bus Image" width="305" height="205" style="border-radius: 25px;" />
           <div class="bus-info-details">
             <div class="bus-info-right">
             <p><span class="route-number">${routeName}</span> <span class="boring-text"><strong>${pathwayName}</strong></span></p>
@@ -75,5 +75,3 @@ function toggleBusInfo(visible) {
       }
     }
   }
-
-  
