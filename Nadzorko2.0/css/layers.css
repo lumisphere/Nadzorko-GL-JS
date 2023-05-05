@@ -1,0 +1,107 @@
+.layers-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 35%;
+  background-color:  #FFEA00; /*#f1f1f1*/
+  cursor: pointer;
+  z-index: 1001;
+  text-align: center;
+}
+
+.layers-toggle i {
+  font-size: 24px;
+  transition: opacity 0.5s, transform 0.5s;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+.layers-toggle .icon-close {
+  opacity: 0;
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.layers-toggle.open .icon-open {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.layers-toggle.open .icon-close {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(-180deg);
+}
+
+  .layers-sidebar {
+    position: fixed;
+    top: 0;
+    right: -280px; /* i think this hides it by default*/
+    width: 250px;
+    height: 100%;
+    background-color: #1a1a1a;
+    transition: right 1s;
+    z-index: 1000;
+    padding: 1rem; 
+    box-shadow: -5px 0px 5px #1a1a1a;
+    overflow-y: auto;
+    border-radius: 0%;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    box-sizing: border-box;
+  }
+  
+  .layers-sidebar.open {
+    right: 0;
+  }
+
+
+  /* layers */
+  .provider {
+    margin-bottom: 1rem;
+    color: white;
+  }
+  
+  .provider-title {
+   /* font-weight: bold; */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .provider:first-child .provider-title {
+    margin-top: 72px;
+  }
+  
+  .provider-title i {
+    transition: transform 0.5s;
+    margin-right: 10px;
+  }
+  
+  .layers {
+    max-height: 0;
+    overflow: hidden;
+    padding-left: 1.5rem;
+    transition: max-height 0.5s;
+  }
+  
+  .layer-option {
+    cursor: pointer;
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .layer-option.selected {
+    background-color: #FFEA00;
+    color: #000000;
+    border-radius: 5px;
+    padding: 3px 10px;
+    margin: 3px 0;
+  }

@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fullscreen Map</title>
+  <title>Nadzorko - Map</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
   <link href='https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css' rel='stylesheet' />
+  <link rel="stylesheet" href="css/layers.css" />
+  <link rel="stylesheet" href="css/sidebar.css" />
   <style>
     body {
       margin: 0;
@@ -21,7 +24,45 @@
 </head>
 <body>
   <div id="map"></div>
+  
+  <button id="sidebar-toggle" class="sidebar-toggle">
+    <i class="icon-open fa-solid fa-bars" style="color: #000000;"></i>
+    <i class="icon-close fa-solid fa-xmark" style="color: #000000;"></i>
+  </button>
+   <div id="sidebar" class="sidebar"></div>
+
+  <button id="layers-toggle" class="layers-toggle">
+    <i class="icon-open fa-solid fa-map" style="color: #000000;"></i>
+    <i class="icon-close fa-solid fa-xmark" style="color: #000000;"></i>
+  </button>
+  <div id="layers-sidebar" class="layers-sidebar">
+    <div class="provider" data-provider="mapbox">
+      <div class="provider-title"><i class="fa-solid fa-caret-down"></i>Mapbox</div>
+      <div class="layers">
+        <div class="layer-option" data-layer="streets-v11">Streets</div>
+        <!-- ... other Mapbox layers -->
+      </div>
+    </div>
+    
+    <div class="provider" data-provider="maptiler">
+      <div class="provider-title"><i class="fa-solid fa-caret-down"></i>MapTiler</div>
+      <div class="layers">
+        <div class="layer-option" data-layer="basic">Basic</div>
+        <!-- ... other MapTiler layers -->
+      </div>
+    </div>
+    
+    <div class="provider" data-provider="carto">
+      <div class="provider-title"><i class="fa-solid fa-caret-down"></i>Carto</div>
+      <div class="layers">
+        <div class="layer-option" data-layer="voyager">Voyager</div>
+        <!-- ... other Carto layers -->
+      </div>
+    </div>
   <script src='https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js'></script>
+  <script src="https://kit.fontawesome.com/c7e336cffb.js" crossorigin="anonymous"></script>
   <script src="js/map.js"></script>
+  <script src="js/layers.js"></script>
+  <script src="js/sidebar.js"></script>
 </body>
 </html>
