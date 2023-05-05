@@ -6,11 +6,11 @@ const map = new maplibregl.Map({
     style: 'https://api.maptiler.com/maps/streets-v2-dark/style.json?key=' + maptilerAPI,
     center: [16.4378, 43.5081], // Split, Croatia
     zoom: 12,
-  });
+});
 
-  function setMapStyle(style) {
+function setMapStyle(style) {
     map.setStyle(style);
-  }
-  
-  // Expose the setMapStyle function to be accessible from other scripts
-  window.setMapStyle = setMapStyle;
+}
+
+// Expose the setMapStyle function to be accessible from other scripts
+window.setMapStyle = setMapStyle;

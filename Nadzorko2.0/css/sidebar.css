@@ -13,7 +13,7 @@
   
   .sidebar-toggle i {
     font-size: 24px;
-    transition: opacity 0.5s, transform 0.5s;
+    transition: transform 0.5s, opacity 0.5s;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -23,17 +23,17 @@
   
   .sidebar-toggle .icon-close {
     opacity: 0;
-    transition: opacity 0.5s, transform 0.5s;
+    transition: transform 0.5s, opacity 0.5s;
   }
   
   .sidebar-toggle.open .icon-open {
     opacity: 0;
-    transform: translate(-50%, -50%) scaleX(-1);
+    transform: translate(-50%, -50%) rotate(180deg);
   }
   
   .sidebar-toggle.open .icon-close {
     opacity: 1;
-    transform: translate(-50%, -50%) scaleX(1);
+    transform: translate(-50%, -50%) rotate(360deg);
   }
   
   .sidebar {

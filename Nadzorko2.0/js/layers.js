@@ -19,17 +19,39 @@ providerTitles.forEach((title) => {
 
 const layerOptions = document.querySelectorAll(".layer-option");
 
+function updateSelectedLayer(selectedLayer) {
+  layerOptions.forEach((option) => {
+    if (option === selectedLayer) {
+      option.classList.add("selected");
+    } else {
+      option.classList.remove("selected");
+    }
+  });
+}
+
 layerOptions.forEach((option) => {
+  // Add the 'selected' class to the default selected layer
+  if (option.getAttribute("data-layer") === "streets-v2-dark") {
+    option.classList.add("selected");
+  }
+
   option.addEventListener("click", () => {
     const provider = option.parentElement.parentElement.getAttribute("data-provider");
     const layer = option.getAttribute("data-layer");
 
     let styleUrl;
 
-    if (provider === "maplibre") {
+    if (provider === "mapbox") {
+      styleUrl = `https://api.mapbox.com/styles/v1/mapbox/${layer}?access_token=${accessToken}`;
+    } else if (provider === "maptiler-streets" || provider === "maptiler-basic") {
       styleUrl = `https://api.maptiler.com/maps/${layer}/style.json?key=${maptilerAPI}`;
-    } // else if (provider === 'otherProvider') { ... }
+    } else if (provider === "carto") {
+      styleUrl = `https://basemaps.cartocdn.com/gl/${layer}-gl-style/style.json`;
+    }
 
     setMapStyle(styleUrl);
+
+    // Update the selected layer
+    updateSelectedLayer(option);
   });
 });

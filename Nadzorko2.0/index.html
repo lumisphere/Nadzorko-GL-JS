@@ -36,29 +36,25 @@
     <i class="icon-close fa-solid fa-xmark" style="color: #000000;"></i>
   </button>
   <div id="layers-sidebar" class="layers-sidebar">
-    <div class="provider" data-provider="mapbox">
-      <div class="provider-title"><i class="fa-solid fa-caret-down"></i>Mapbox</div>
+    <div class="provider" data-provider="maptiler-streets">
+      <div class="provider-title"><i class="fa-solid fa-caret-down"></i>MapTiler Streets</div>
       <div class="layers">
-        <div class="layer-option" data-layer="streets-v11">Streets</div>
-        <!-- ... other Mapbox layers -->
+        <div class="layer-option" data-layer="streets-v2">Default</div>
+        <div class="layer-option" data-layer="streets-v2-dark">Dark</div>
+        <div class="layer-option" data-layer="streets-v2-light">Light</div>
+        <div class="layer-option" data-layer="streets-v2-pastel">Pastel</div>
       </div>
     </div>
-    
-    <div class="provider" data-provider="maptiler">
-      <div class="provider-title"><i class="fa-solid fa-caret-down"></i>MapTiler</div>
+    <div class="provider" data-provider="maptiler-basic">
+      <div class="provider-title"><i class="fa-solid fa-caret-down"></i>MapTiler Basic</div>
       <div class="layers">
-        <div class="layer-option" data-layer="basic">Basic</div>
+        <div class="layer-option" data-layer="basic-v2">Default</div>
+        <div class="layer-option" data-layer="basic-v2-dark">Dark</div>
+        <div class="layer-option" data-layer="basic-v2-light">Light</div>
         <!-- ... other MapTiler layers -->
       </div>
     </div>
-    
-    <div class="provider" data-provider="carto">
-      <div class="provider-title"><i class="fa-solid fa-caret-down"></i>Carto</div>
-      <div class="layers">
-        <div class="layer-option" data-layer="voyager">Voyager</div>
-        <!-- ... other Carto layers -->
-      </div>
-    </div>
+  </div>
   <script src='https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js'></script>
   <script src="https://kit.fontawesome.com/c7e336cffb.js" crossorigin="anonymous"></script>
   <script src="js/map.js"></script>
