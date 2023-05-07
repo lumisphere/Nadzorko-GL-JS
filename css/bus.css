@@ -1,0 +1,53 @@
+.bus-marker {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .route-short-name {
+    font-size: 12px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-family: 'Inter', sans-serif;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    color: #333333;
+    font-weight: bold;
+    z-index: 2;
+  }
+  
+  .bus-marker.active .bus-circle,
+  .bus-marker.inactive .bus-circle {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #FFC107;
+    z-index: 1;
+  }
+  
+  .garage-number {
+    position: absolute;
+    bottom: -15px;
+    font-size: 8px;
+    padding: 2px;
+    background-color: #3F51B5;
+    border: 0px solid #000000;
+    border-radius: 45%;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    z-index: 2;
+  }
+  
+  .pointer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: top left;
+    -ms-transform-origin: top left;
+    -webkit-transform-origin: top left;
+    z-index: 0;
+  }
