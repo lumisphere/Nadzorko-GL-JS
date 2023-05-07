@@ -15,6 +15,7 @@
     font-weight: bold;
     color: #333333;
     transform: translate(-50%, -50%);
+    font-family: 'Roboto', sans-serif;
     z-index: 2; /* Add a higher z-index to ensure that the route short name appears above the other elements */
   }
   
@@ -25,25 +26,53 @@
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background-color: #f1c40f;
     transform: translate(-50%, -50%);
     z-index: 1;
+    background: linear-gradient(45deg, #FF6D00 0%, #FFA500 25%, #FFFF00 50%, #FFA500 75%, #FF6D00 100%);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
   }
   
-  .garage-number {
-    position: absolute;
-    top: 10px; /* Adjust this value to move the garage number up or down */
-    font-size: 8px;
-    padding: 2px;
-    background-color: #3F51B5;
-    border: 0px solid #000000;
-    border-radius: 30%;
-    color: #fff; /* Customize the font color here */
-    font-family: 'Inter', sans-serif;
-    z-index: 2;
-    line-height: 1;
-    width: 16px;
-    text-align: center;
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+.garage-number {
+  position: absolute;
+  top: 10px;
+  font-size: 8px;
+  padding: 2px;
+  border: 0px solid #000000;
+  border-radius: 30%;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  z-index: 2;
+  line-height: 1;
+  width: 16px;
+  text-align: center;
+  background: linear-gradient(45deg, #2196F3, #8BC34A);
+  background-size: 400% 400%;
+  animation: gradient2 10s ease infinite;
+}
+
+@keyframes gradient2 {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
   
   .pointer {
