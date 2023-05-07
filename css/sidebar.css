@@ -6,10 +6,23 @@
     height: 48px;
     border: none;
     border-radius: 35%;
-    background-color: #FFEA00;
     cursor: pointer;
     z-index: 1001;
+    background-color: #FFEA00;
+    background-image: linear-gradient(90deg, #00FF00 0%, #7FFF00 25%, #FFFF00 50%, #7FFF00 75%, #00FF00 100%);
+    background-size: 400% 400%;
+    animation: sidebarAnimation 10s linear infinite;
   }
+  
+  @keyframes sidebarAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+  
   
   .sidebar-toggle i {
     font-size: 24px;
