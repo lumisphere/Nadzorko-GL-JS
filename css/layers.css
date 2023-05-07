@@ -10,7 +10,7 @@
   z-index: 1001;
   text-align: center;
   background-color: #FFEA00;
-  background-image: linear-gradient(90deg, #00FF00 0%, #7FFF00 25%, #FFFF00 50%, #7FFF00 75%, #00FF00 100%);
+  background-image: linear-gradient(90deg, #FF6D00 0%, #FFA500 25%, #FFFF00 50%, #FFA500 75%, #FF6D00 100%);
   background-size: 400% 400%;
   animation: gradientAnimation 10s linear infinite;
 }
@@ -19,8 +19,65 @@
   0% {
     background-position: 0% 50%;
   }
-  100% {
+  5% {
+    background-position: 10% 50%;
+  }
+  10% {
+    background-position: 20% 50%;
+  }
+  15% {
+    background-position: 30% 50%;
+  }
+  20% {
+    background-position: 40% 50%;
+  }
+  25% {
+    background-position: 50% 50%;
+  }
+  30% {
+    background-position: 60% 50%;
+  }
+  35% {
+    background-position: 70% 50%;
+  }
+  40% {
+    background-position: 80% 50%;
+  }
+  45% {
+    background-position: 90% 50%;
+  }
+  50% {
     background-position: 100% 50%;
+  }
+  55% {
+    background-position: 90% 50%;
+  }
+  60% {
+    background-position: 80% 50%;
+  }
+  65% {
+    background-position: 70% 50%;
+  }
+  70% {
+    background-position: 60% 50%;
+  }
+  75% {
+    background-position: 50% 50%;
+  }
+  80% {
+    background-position: 40% 50%;
+  }
+  85% {
+    background-position: 30% 50%;
+  }
+  90% {
+    background-position: 20% 50%;
+  }
+  95% {
+    background-position: 10% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
@@ -111,10 +168,10 @@
   }
 
   .layer-option.selected {
-    background-image: linear-gradient(90deg, #00FF00 , #7FFF00 , #FFFF00 , #FFEA00 , #FFFF00 , #7FFF00 , #00FF00 );
+    background-image: linear-gradient(90deg, #FF6D00 0%, #FFA500 25%, #FFFF00 50%, #FFA500 75%, #FF6D00 100%);
     background-size: 400% 400%;
     color: #000000;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 3px 10px;
     margin: 3px 0;
     animation: fapAnimation 5s linear infinite;
