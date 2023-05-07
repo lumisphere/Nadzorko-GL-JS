@@ -60,7 +60,7 @@
   text-align: center;
   background: linear-gradient(45deg, #2196F3, #8BC34A);
   background-size: 400% 400%;
-  animation: gradient2 10s ease infinite;
+  animation: gradient2 5s ease infinite;
 }
 
 @keyframes gradient2 {

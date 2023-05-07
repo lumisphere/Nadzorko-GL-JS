@@ -11,7 +11,7 @@ async function fetchBusData() {
 // Function to create bus marker
 function createBusMarker(bus, isActive) {
   const markerElement = document.createElement("div");
-  markerElement.className = `bus-marker ${isActive ? "active" : "inactive"}`;
+  markerElement.className = `bus-marker \${isActive ? "active" : "inactive"}`;
 
   const routeShortName = document.createElement("span");
   routeShortName.className = "route-short-name";
@@ -54,25 +54,24 @@ async function updateBusMarkers(map, markers) {
       }).setLngLat([bus.longitude, bus.latitude]).addTo(map);
       marker.id = bus.id;
       markers.push(marker);
+    } else {
+      const currentPosition = marker.getLngLat();
+      const newPosition = [bus.longitude, bus.latitude];
+
+      if (currentPosition.lng !== newPosition[0] || currentPosition.lat !== newPosition[1]) {
+        animateMarker(marker, [currentPosition.lng, currentPosition.lat], newPosition, 1000);
+      }
 
       if (!isActive) {
         marker.getElement().style.opacity = opacity;
-      }
-    } else {
-        marker.setLngLat([bus.longitude, bus.latitude]);
-
-      if (marker.getElement().classList.contains('inactive') && isActive) {
-        const index = markers.indexOf(marker);
-        markers.splice(index, 1);
-        marker.remove();
       } else {
-        marker.getElement().style.opacity = opacity;
+        marker.setLngLat([bus.longitude, bus.latitude]);
       }
-    }
 
-    // Rotate the pointer based on the bus bearing
-    const pointer = marker.getElement().querySelector(".pointer");
-    pointer.style.transform = `rotate(${bus.bearing + 225}deg)`;
+      // Rotate the pointer based on the bus bearing
+      const pointer = marker.getElement().querySelector(".pointer");
+      pointer.style.transform = `rotate(\${bus.bearing + 225}deg)`;
+    }
   });
 }
 
@@ -82,3 +81,26 @@ updateBusMarkers(map, markers);
 
 // Update the bus markers every 1 second
 setInterval(() => updateBusMarkers(map, markers), 1000);
+
+function lerp(start, end, t) {
+  return start * (1 - t) + end * t;
+}
+
+function animateMarker(marker, start, end, duration) {
+  const startTime = performance.now();
+
+  function step(timestamp) {
+    const progress = (timestamp - startTime) / duration;
+    const currentPoint = [
+      lerp(start[0], end[0], progress),
+      lerp(start[1], end[1], progress),
+    ];
+    marker.setLngLat(currentPoint);
+
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    }
+  }
+
+  requestAnimationFrame(step);
+}
