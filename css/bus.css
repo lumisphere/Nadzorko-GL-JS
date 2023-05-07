@@ -1,45 +1,49 @@
 .bus-marker {
-    position: relative;
-    display: inline-flex;
+    position: absolute;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-family: 'Inter', sans-serif;
   }
   
   .route-short-name {
-    font-size: 12px;
     position: absolute;
     top: 50%;
     left: 50%;
-    font-family: 'Inter', sans-serif;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    color: #333333;
+    font-size: 12px;
     font-weight: bold;
-    z-index: 2;
+    color: #333333;
+    transform: translate(-50%, -50%);
+    z-index: 2; /* Add a higher z-index to ensure that the route short name appears above the other elements */
   }
   
-  .bus-marker.active .bus-circle,
-  .bus-marker.inactive .bus-circle {
+  .bus-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background-color: #FFC107;
+    background-color: #f1c40f;
+    transform: translate(-50%, -50%);
     z-index: 1;
   }
   
   .garage-number {
     position: absolute;
-    bottom: -15px;
+    top: 10px; /* Adjust this value to move the garage number up or down */
     font-size: 8px;
     padding: 2px;
     background-color: #3F51B5;
     border: 0px solid #000000;
-    border-radius: 45%;
-    color: #fff;
+    border-radius: 30%;
+    color: #fff; /* Customize the font color here */
     font-family: 'Inter', sans-serif;
     z-index: 2;
+    line-height: 1;
+    width: 16px;
+    text-align: center;
   }
   
   .pointer {
@@ -47,7 +51,5 @@
     top: 50%;
     left: 50%;
     transform-origin: top left;
-    -ms-transform-origin: top left;
-    -webkit-transform-origin: top left;
     z-index: 0;
   }

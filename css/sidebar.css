@@ -1,3 +1,5 @@
+/* makes the icon */
+
 .sidebar-toggle {
     position: fixed;
     top: 10px;
@@ -14,6 +16,8 @@
     animation: sidebarAnimation 10s linear infinite;
   }
   
+  /* does the icon gradient animation*/
+
   @keyframes sidebarAnimation {
     0% {
       background-position: 0% 50%;
@@ -80,7 +84,8 @@
     }
   }
   
-  
+  /* makes the icon turn into x */
+
   .sidebar-toggle i {
     font-size: 24px;
     transition: transform 0.5s, opacity 0.5s;
@@ -91,6 +96,8 @@
     opacity: 1;
   }
   
+  /* animates the icon */
+
   .sidebar-toggle .icon-close {
     opacity: 0;
     transition: transform 0.5s, opacity 0.5s;
@@ -105,7 +112,9 @@
     opacity: 1;
     transform: translate(-50%, -50%) rotate(360deg);
   }
-  
+
+  /* makes the sidebar */
+
   .sidebar {
     position: fixed;
     top: 0;
