@@ -14,8 +14,3 @@ function setMapStyle(style) {
 
 // Expose the setMapStyle function to be accessible from other scripts
 window.setMapStyle = setMapStyle;
-
-map.on("load", () => {
-  updateBusMarkers(map);
-  setInterval(() => updateBusMarkers(map), 1000);
-});

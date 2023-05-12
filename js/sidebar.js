@@ -6,13 +6,10 @@ sidebarToggle.addEventListener("click", () => {
   sidebar.classList.toggle("open");
 });
 
-const toggleBuses = document.getElementById("toggle-buses");
-const inactiveBuses = document.querySelectorAll(".bus.inactive");
+const showInactiveBuses = document.getElementById("show-inactive-buses");
 
-toggleBuses.addEventListener("change", () => {
-  if (toggleBuses.checked) {
-    inactiveBuses.forEach(bus => bus.style.display = "block");
-  } else {
-    inactiveBuses.forEach(bus => bus.style.display = "none");
-  }
+showInactiveBuses.addEventListener("change", () => {
+  const show = showInactiveBuses.checked;
+  const event = new CustomEvent("showInactiveBusesChanged", { detail: { show } });
+  document.dispatchEvent(event);
 });
