@@ -11,7 +11,7 @@ async function fetchBusData() {
 // Function to create bus marker
 function createBusMarker(bus, isActive) {
   const markerElement = document.createElement("div");
-  markerElement.className = `bus-marker \${isActive ? "active" : "inactive"}`;
+  markerElement.className = `bus-marker ${isActive ? "active" : "inactive"}`;
 
   const routeShortName = document.createElement("span");
   routeShortName.className = "route-short-name";
@@ -36,15 +36,24 @@ function createBusMarker(bus, isActive) {
 }
 
 // Function to update bus markers
-async function updateBusMarkers(map, markers) {
+async function updateBusMarkers(map, activeMarkers, inactiveMarkers) {
   const busData = await fetchBusData();
+  const activeBuses = busData.filter(bus => new Date() - new Date(bus.timestamp) <= 5 * 60 * 1000);
+  const inactiveBuses = busData.filter(bus => new Date() - new Date(bus.timestamp) > 5 * 60 * 1000);
 
-  busData.forEach((bus) => {
-    const timeDifference = new Date() - new Date(bus.timestamp);
-    const opacity = timeDifference > 5 * 60 * 1000 ? 0.1 : 1;
+  updateMarkers(map, activeMarkers, activeBuses, true);
+  updateMarkers(map, inactiveMarkers, inactiveBuses, false);
+}
 
+let showInactiveBusesState = false; // Declare a variable to store the state of the showInactiveBuses checkbox
+
+document.addEventListener("showInactiveBusesChanged", (event) => {
+  showInactiveBusesState = event.detail.show; // Update the variable based on the event detail
+});
+
+function updateMarkers(map, markers, buses, isActive) {
+  buses.forEach((bus) => {
     let marker = markers.find((m) => m.id === bus.id);
-    const isActive = opacity === 1;
     const busMarkerElement = createBusMarker(bus, isActive);
 
     if (!marker) {
@@ -55,52 +64,34 @@ async function updateBusMarkers(map, markers) {
       marker.id = bus.id;
       markers.push(marker);
     } else {
-      const currentPosition = marker.getLngLat();
-      const newPosition = [bus.longitude, bus.latitude];
-
-      if (currentPosition.lng !== newPosition[0] || currentPosition.lat !== newPosition[1]) {
-        animateMarker(marker, [currentPosition.lng, currentPosition.lat], newPosition, 1000);
-      }
-
       if (!isActive) {
-        marker.getElement().style.opacity = opacity;
+        if (showInactiveBusesState) {
+          marker.getElement().style.display = 'block';
+          marker.getElement().style.opacity = 0.1;
+        } else {
+          marker.getElement().style.display = 'none';
+        }
       } else {
         marker.setLngLat([bus.longitude, bus.latitude]);
       }
 
       // Rotate the pointer based on the bus bearing
       const pointer = marker.getElement().querySelector(".pointer");
-      pointer.style.transform = `rotate(\${bus.bearing + 225}deg)`;
+      pointer.style.transform = `rotate(${bus.bearing + 225}deg)`;
     }
   });
 }
 
+
 // Call the updateBusMarkers function to update the markers on the map
-const markers = [];
-updateBusMarkers(map, markers);
+const activeMarkers = [];
+const inactiveMarkers = [];
+updateBusMarkers(map, activeMarkers, inactiveMarkers);
 
-// Update the bus markers every 1 second
-setInterval(() => updateBusMarkers(map, markers), 1000);
-
-function lerp(start, end, t) {
-  return start * (1 - t) + end * t;
+// Update the bus markers using requestAnimationFrame
+function updateLoop() {
+  updateBusMarkers(map, activeMarkers, inactiveMarkers);
+  requestAnimationFrame(updateLoop);
 }
 
-function animateMarker(marker, start, end, duration) {
-  const startTime = performance.now();
-
-  function step(timestamp) {
-    const progress = (timestamp - startTime) / duration;
-    const currentPoint = [
-      lerp(start[0], end[0], progress),
-      lerp(start[1], end[1], progress),
-    ];
-    marker.setLngLat(currentPoint);
-
-    if (progress < 1) {
-      requestAnimationFrame(step);
-    }
-  }
-
-  requestAnimationFrame(step);
-}
+updateLoop();
