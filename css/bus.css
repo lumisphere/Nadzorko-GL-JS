@@ -28,7 +28,7 @@
     border-radius: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
-    background: linear-gradient(45deg, #FF6D00 0%, #FFA500 25%, #FFFF00 50%, #FFA500 75%, #FF6D00 100%);
+    background: linear-gradient(45deg, #fdb913 0%, #FED22F 25%, #FFEA3D 50%, #FED22F 75%, #FDB913 100%);
     background-size: 400% 400%;
     animation: gradient 10s ease infinite;
   }
@@ -52,13 +52,14 @@
   padding: 2px;
   border: 0px solid #000000;
   border-radius: 30%;
-  color: #fff;
-  font-family: 'Inter', sans-serif;
+  color: #000000;
+  font-weight: 600;
+  font-family: 'Roboto', sans-serif;
   z-index: 2;
   line-height: 1;
   width: 16px;
   text-align: center;
-  background: linear-gradient(45deg, #2196F3, #8BC34A);
+  background: linear-gradient(45deg, #1D7DD2, #fdb913);
   background-size: 400% 400%;
   animation: gradient2 5s ease infinite;
 }

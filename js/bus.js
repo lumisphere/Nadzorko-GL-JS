@@ -2,10 +2,22 @@
 const baseApi = 'https://api.split.prometko.si';
 
 // Function to fetch bus data from the API
+let fetchCounter = 0;
+
 async function fetchBusData() {
   const response = await fetch(`${baseApi}/vehicles`);
   const data = await response.json();
-  return data.success ? data.data : [];
+  
+  fetchCounter++;
+
+  if (data.success) {
+    if (fetchCounter % 10 === 0) {
+      console.log("Fetched split buses!", data.data);
+    }
+    return data.data;
+  } else {
+    return [];
+  }
 }
 
 // Function to create bus marker
@@ -91,7 +103,6 @@ updateBusMarkers(map, activeMarkers, inactiveMarkers);
 // Update the bus markers using requestAnimationFrame
 function updateLoop() {
   updateBusMarkers(map, activeMarkers, inactiveMarkers);
-  requestAnimationFrame(updateLoop);
 }
 
-updateLoop();
+setInterval(updateLoop, 1000);

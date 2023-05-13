@@ -33,7 +33,7 @@ async function updateTrainMarkers(map, trainMarkers) {
       marker = new maplibregl.Marker({
         element: trainMarkerElement,
         anchor: 'center',
-        offset: [0, -20]
+        offset: [0, 0]
       }).setLngLat([train.coordinates.lng, train.coordinates.lat]).addTo(map);
       marker.id = train.train_data.train_number;
       trainMarkers.push(marker);
@@ -50,7 +50,7 @@ updateTrainMarkers(map, trainMarkers);
 // Update the train markers using requestAnimationFrame
 function updateLoop() {
   updateTrainMarkers(map, trainMarkers);
-  requestAnimationFrame(updateLoop);
+  setInterval(() => updateTrainMarkers(map, trainMarkers), 5000);
 }
 
 updateLoop();
