@@ -41,7 +41,7 @@ function createBusMarker(bus, isActive) {
 
   const pointer = document.createElement("img");
   pointer.className = "pointer";
-  pointer.src = "ico/bussmjer.svg";
+  pointer.src = "ico/busdirection.svg";
   markerElement.appendChild(pointer);
 
   return markerElement;

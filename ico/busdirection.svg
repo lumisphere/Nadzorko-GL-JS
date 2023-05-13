@@ -1,0 +1,9 @@
+<svg class="custom-circle" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <mask id="circle-mask">
+            <rect width="13" height="13" fill="white"/>
+            <circle cx="0" cy="0" r="13" class="circle-mask-fill"/>
+        </mask>
+    </defs>
+    <rect width="13" height="13" mask="url(#circle-mask)" fill="#FFEA3D"/>
+</svg>
