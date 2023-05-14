@@ -11,7 +11,7 @@ async function fetchBusData() {
   fetchCounter++;
 
   if (data.success) {
-    if (fetchCounter % 10 === 0) {
+    if (fetchCounter % 30 === 0) {
       console.log("Fetched split buses!", data.data);
     }
     return data.data;
