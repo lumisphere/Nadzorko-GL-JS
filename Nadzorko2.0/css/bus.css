@@ -1,0 +1,85 @@
+.bus-marker {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .route-short-name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 12px;
+    font-weight: bold;
+    color: #333333;
+    transform: translate(-50%, -50%);
+    font-family: 'Roboto', sans-serif;
+    z-index: 2; /* Add a higher z-index to ensure that the route short name appears above the other elements */
+  }
+  
+  .bus-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    background: linear-gradient(45deg, #fdb913 0%, #FED22F 25%, #FFEA3D 50%, #FED22F 75%, #FDB913 100%);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+  }
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+.garage-number {
+  position: absolute;
+  top: 10px;
+  font-size: 8px;
+  padding: 2px;
+  border: 0px solid #000000;
+  border-radius: 30%;
+  color: #000000;
+  font-weight: 600;
+  font-family: 'Roboto', sans-serif;
+  z-index: 2;
+  line-height: 1;
+  width: 16px;
+  text-align: center;
+  background: linear-gradient(45deg, #1D7DD2, #fdb913);
+  background-size: 400% 400%;
+  animation: gradient2 5s ease infinite;
+}
+
+@keyframes gradient2 {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .pointer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: top left;
+    z-index: 0;
+  }

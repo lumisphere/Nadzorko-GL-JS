@@ -6,8 +6,11 @@
   <title>Nadzorko - Map</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
   <link href='https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css' rel='stylesheet' />
+  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.4.1/mapbox-gl-draw.css' type='text/css' />
   <link rel="stylesheet" href="css/layers.css" />
   <link rel="stylesheet" href="css/sidebar.css" />
+  <link rel="stylesheet" href="css/bus.css" />
+  <link rel="stylesheet" href="css/train.css" />
   <style>
     body {
       margin: 0;
@@ -29,8 +32,19 @@
     <i class="icon-open fa-solid fa-bars" style="color: #000000;"></i>
     <i class="icon-close fa-solid fa-xmark" style="color: #000000;"></i>
   </button>
-   <div id="sidebar" class="sidebar"></div>
-
+  <div id="sidebar" class="sidebar">
+    <label class="toggle-label">
+      <input type="checkbox" class="toggle-input" id="show-inactive-buses" checked>
+      <span class="toggle-slider"></span>
+      Show inactive buses
+    </label>    
+    <label class="toggle-label">
+      <input type="checkbox" class="toggle-input" checked>
+      <span class="toggle-slider"></span>
+      Animate Buses
+    </label>
+     
+  </div>
   <button id="layers-toggle" class="layers-toggle">
     <i class="icon-open fa-solid fa-map" style="color: #000000;"></i>
     <i class="icon-close fa-solid fa-xmark" style="color: #000000;"></i>
@@ -57,8 +71,11 @@
   </div>
   <script src='https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js'></script>
   <script src="https://kit.fontawesome.com/c7e336cffb.js" crossorigin="anonymous"></script>
+  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.4.1/mapbox-gl-draw.js'></script>
   <script src="js/map.js"></script>
   <script src="js/layers.js"></script>
   <script src="js/sidebar.js"></script>
+  <script src="js/bus.js"></script>
+  <script src="js/train.js"></script>
 </body>
 </html>
