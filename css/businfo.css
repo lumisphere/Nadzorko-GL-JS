@@ -30,8 +30,8 @@
 /* For mobile devices */
 @media only screen and (max-width: 480px) {
   #bus-info {
-    left: 20px;
-    right: 20px;
+    left: 0px;
+    right: 0px;
   }
 }
 
@@ -70,15 +70,39 @@
   .bus-info-content {
     display: flex;
     align-items: flex-start;
-  }
+    flex-direction: row; /* Default direction for larger screens */
+}
 
-  .bus-info-bottom {
-   background-color: #1f1c1c;
-   border-radius: 20px;
-   height: 40%; /* complete later too lazy rn, want to have it kind of sexy bg ig */
-   width: auto;
-   max-width: 20%;
-  }
+/* For mobile devices */
+@media only screen and (max-width: 480px) {
+    .bus-info-content {
+        flex-direction: column; /* Change direction to column for smaller screens */
+    }
+}
+
+
+.bus-info-bottom {
+    border-radius: 20px;
+    height: 40%;
+    width: auto;
+    max-width: 100%;
+}
+
+/* For tablet devices */
+@media only screen and (max-width: 768px) {
+    .bus-info-bottom {
+        max-width: 40%; /* Adjust as needed */
+    }
+}
+
+/* For mobile devices */
+@media only screen and (max-width: 480px) {
+    .bus-info-bottom {
+        max-width: 100%; /* Adjust as needed */
+        height: auto; /* You might want to adjust the height for mobile devices */
+    }
+}
+
   
   .bus-info-details {
     display: flex;
