@@ -3,7 +3,7 @@ var accessToken = 'pk.eyJ1IjoiYW5hbHdvb2QiLCJhIjoiY2xneWJlMm9lMDd2MzNtcDQwOXJwcG
 
 const map = new maplibregl.Map({
   container: 'map',
-  style: '/json/map/dark_matter.json', 
+  style: '/json/map/dark.json', 
   center: [16.4378, 43.5081], // Split, Croatia
   zoom: 12,
 });

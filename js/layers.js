@@ -31,7 +31,7 @@ function updateSelectedLayer(selectedLayer) {
 
 layerOptions.forEach((option) => {
   // Add the 'selected' class to the default selected layer
-  if (option.getAttribute("data-layer") === "streets-v2-dark") {
+  if (option.getAttribute("data-layer") === "dark") {
     option.classList.add("selected");
   }
 
@@ -47,6 +47,8 @@ layerOptions.forEach((option) => {
       styleUrl = `https://api.maptiler.com/maps/${layer}/style.json?key=${maptilerAPI}`;
     } else if (provider === "carto") {
       styleUrl = `https://basemaps.cartocdn.com/gl/${layer}-gl-style/style.json`;
+    } else if (provider === "maputnik") {
+      styleUrl = `/json/map/${layer}.json`;
     }
 
     setMapStyle(styleUrl);
