@@ -77,23 +77,22 @@ function updateMarkers(map, markers, buses, isActive) {
       marker.prevState = isActive;
       markers.push(marker);
     } else {
-      if (marker.prevState !== isActive) {
-        console.log(`Bus ${bus.id} switched from ${marker.prevState ? 'active' : 'inactive'} to ${isActive ? 'active' : 'inactive'}`);
-        marker.prevState = isActive;
+      const prevState = marker.prevState;
+      marker.prevState = isActive;
+
+      if (prevState !== isActive) {
+        console.log(`Bus ${bus.id} switched from ${prevState ? 'active' : 'inactive'} to ${isActive ? 'active' : 'inactive'}`);
       }
 
-      if (!isActive) {
-        if (showInactiveBusesState) {
-          marker.getElement().style.display = 'block';
-          marker.getElement().style.opacity = 0.1;
-        } else {
-          marker.getElement().style.display = 'none';
-        }
-      } else {
-        marker.setLngLat([bus.longitude, bus.latitude]);
+      if (!isActive && showInactiveBusesState) {
+        marker.getElement().style.display = 'block';
+        marker.getElement().style.opacity = 0.1;
+      } else if (!isActive) {
+        marker.getElement().style.display = 'none';
       }
 
-      // Rotate the pointer based on the bus bearing
+      // Update the position and rotation of the marker regardless of its previous state
+      marker.setLngLat([bus.longitude, bus.latitude]);
       const pointer = marker.getElement().querySelector(".pointer");
       pointer.style.transform = `rotate(${bus.bearing + 225}deg)`;
     }

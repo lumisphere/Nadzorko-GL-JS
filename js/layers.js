@@ -49,6 +49,8 @@ layerOptions.forEach((option) => {
       styleUrl = `https://basemaps.cartocdn.com/gl/${layer}-gl-style/style.json`;
     } else if (provider === "maputnik") {
       styleUrl = `/json/map/${layer}.json`;
+    } else if (provider === "ESRI") {
+      styleUrl = `/json/map/${layer}.json`;
     }
 
     setMapStyle(styleUrl);
