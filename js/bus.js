@@ -48,13 +48,13 @@ function createBusMarker(bus, isActive) {
 }
 
 // Function to update bus markers
-async function updateBusMarkers(map, activeMarkers, inactiveMarkers) {
+async function updateBusMarkers(map, markers) {
   const busData = await fetchBusData();
   const activeBuses = busData.filter(bus => new Date() - new Date(bus.timestamp) <= 5 * 60 * 1000);
   const inactiveBuses = busData.filter(bus => new Date() - new Date(bus.timestamp) > 5 * 60 * 1000);
 
-  updateMarkers(map, activeMarkers, activeBuses, true);
-  updateMarkers(map, inactiveMarkers, inactiveBuses, false);
+  updateMarkers(map, markers, activeBuses, true);
+  updateMarkers(map, markers, inactiveBuses, false);
 }
 
 let showInactiveBusesState = false; // Declare a variable to store the state of the showInactiveBuses checkbox
@@ -74,8 +74,14 @@ function updateMarkers(map, markers, buses, isActive) {
         anchor: 'center'
       }).setLngLat([bus.longitude, bus.latitude]).addTo(map);
       marker.id = bus.id;
+      marker.prevState = isActive;
       markers.push(marker);
     } else {
+      if (marker.prevState !== isActive) {
+        console.log(`Bus ${bus.id} switched from ${marker.prevState ? 'active' : 'inactive'} to ${isActive ? 'active' : 'inactive'}`);
+        marker.prevState = isActive;
+      }
+
       if (!isActive) {
         if (showInactiveBusesState) {
           marker.getElement().style.display = 'block';
@@ -94,15 +100,13 @@ function updateMarkers(map, markers, buses, isActive) {
   });
 }
 
-
 // Call the updateBusMarkers function to update the markers on the map
-const activeMarkers = [];
-const inactiveMarkers = [];
-updateBusMarkers(map, activeMarkers, inactiveMarkers);
+const markers = [];
+updateBusMarkers(map, markers);
 
 // Update the bus markers using requestAnimationFrame
 function updateLoop() {
-  updateBusMarkers(map, activeMarkers, inactiveMarkers);
+  updateBusMarkers(map, markers);
 }
 
 setInterval(updateLoop, 1000);
