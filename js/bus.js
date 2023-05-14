@@ -44,6 +44,15 @@ function createBusMarker(bus, isActive) {
   pointer.src = "ico/busdirection.svg";
   markerElement.appendChild(pointer);
 
+  markerElement.style.pointerEvents = 'auto'; // Enable pointer events
+  markerElement.style.cursor = 'pointer'; // Change cursor to pointer when hovering over the marker
+
+  markerElement.addEventListener("click", async function() {
+    console.log("Marker clicked!");
+    await updateBusInfo(bus.garageNumber);
+    toggleBusInfo(true);
+});
+
   return markerElement;
 }
 

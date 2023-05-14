@@ -82,4 +82,5 @@
     left: 50%;
     transform-origin: top left;
     z-index: 0;
+    pointer-events: none;
   }
