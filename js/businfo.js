@@ -29,7 +29,7 @@ function toggleBusInfo(visible) {
         const vehicleData = await vehicleResponse.json();
 
         // finding the next stop NUMBER
-        const nextStopIndex = vehicleData.data.nextStopIndex;
+        const nextStopIndex = vehicleData.data.nextStopIndex + 1;
 
         // finding the next stop
         const nextStop = vehicleData.data.fulfilmentRecord.stops.find(stop => stop.ordinalNumber === nextStopIndex);
