@@ -16,7 +16,7 @@
     color: #333333;
     transform: translate(-50%, -50%);
     font-family: 'Roboto', sans-serif;
-    z-index: 2; /* Add a higher z-index to ensure that the route short name appears above the other elements */
+    z-index: 2;
   }
   
   .bus-circle {
@@ -28,23 +28,9 @@
     border-radius: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
-    background: linear-gradient(45deg, #fdb913 0%, #FED22F 25%, #FFEA3D 50%, #FED22F 75%, #FDB913 100%);
-    background-size: 400% 400%;
-    animation: gradient 10s ease infinite;
+    background-color: #FFEA3D;
   }
   
-  @keyframes gradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-
 .garage-number {
   position: absolute;
   top: 10px;
@@ -59,22 +45,8 @@
   line-height: 1;
   width: 16px;
   text-align: center;
-  background: linear-gradient(45deg, #1D7DD2, #fdb913);
-  background-size: 400% 400%;
-  animation: gradient2 5s ease infinite;
+  background-color: #fdb913;
 }
-
-@keyframes gradient2 {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
   
   .pointer {
     position: absolute;
